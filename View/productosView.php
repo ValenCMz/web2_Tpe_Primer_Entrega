@@ -16,4 +16,9 @@ class productosView
         $this->smarty->assign('productos', $productos);
         $this->smarty->display('templates/listaItems.tpl');
     }
+
+    function showHome()
+    {
+        $this->smarty->display('templates/home.tpl');
+    }
 }

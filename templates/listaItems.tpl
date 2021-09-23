@@ -1,3 +1,4 @@
+{include file= 'templates/header.tpl'}
 <table>
     <thead>
         <th>id_producto</th>
@@ -8,3 +9,4 @@
         <th>id_categoria</th>
     </thead>
 </table>
+{include file= 'templates/footer.tpl'}
