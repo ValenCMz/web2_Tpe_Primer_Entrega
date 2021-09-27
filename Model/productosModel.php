@@ -17,4 +17,12 @@ class productosModel
         $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
         return $productos;
     }
+
+    function getProductoItem($id)
+    {
+        $sentencia = $this->db->prepare("select * from productos WHERE id_producto=?");
+        $sentencia->execute(array($id));
+        $producto = $sentencia->fetch(PDO::FETCH_OBJ);
+        return $producto;
+    }
 }

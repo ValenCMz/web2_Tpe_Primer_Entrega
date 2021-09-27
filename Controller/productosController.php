@@ -23,4 +23,10 @@ class productosController
     {
         $this->view->showHome();
     }
+
+    function mostrarDetallesDelProducto($id)
+    {
+        $producto = $this->model->getProductoItem($id);
+        $this->view->mostrarDetalles($producto);
+    }
 }

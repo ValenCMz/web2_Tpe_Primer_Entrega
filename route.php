@@ -20,6 +20,9 @@ switch ($params[0]) {
     case 'verProducto':
         $productosController->listarProductosItems();
         break;
+    case 'detallesProducto':
+        $productosController->mostrarDetallesDelProducto($params[1]);
+        break;
     default:
         echo ('404 Page not found');
         break;

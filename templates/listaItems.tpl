@@ -16,6 +16,7 @@
             <td>{$producto->stock}</td>
             <td>{$producto->precio}</td>
             <td>{$producto->id_categoria}</td>
+            <td><a href="detallesProducto/{$producto->id_producto}">Detalles</a> </td>
         </tbody>
     {/foreach}
 </table>
