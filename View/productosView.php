@@ -27,4 +27,10 @@ class productosView
         $this->smarty->assign('producto', $producto);
         $this->smarty->display('templates/detallesProducto.tpl');
     }
+
+    function verProductosPorCategoria($productosPorCategoria)
+    {
+        $this->smarty->assign('productosPorCategoria', $productosPorCategoria);
+        $this->smarty->display('templates/productosPorCategoria.tpl');
+    }
 }

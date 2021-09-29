@@ -29,4 +29,10 @@ class productosController
         $producto = $this->model->getProductoItem($id);
         $this->view->mostrarDetalles($producto);
     }
+
+    function listarProductosPorCategoria($id)
+    {
+        $productosPorCategoria = $this->model->getProductosPorCategoria($id);
+        $this->view->verProductosPorCategoria($productosPorCategoria);
+    }
 }

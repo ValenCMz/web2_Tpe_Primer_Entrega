@@ -25,4 +25,12 @@ class productosModel
         $producto = $sentencia->fetch(PDO::FETCH_OBJ);
         return $producto;
     }
+
+    function getProductosPorCategoria($id)
+    {
+        $sentencia = $this->db->prepare("select * from productos WHERE id_categoria=$id");
+        $sentencia->execute(array($id));
+        $productosPorCategoria = $sentencia->fetchAll(PDO::FETCH_OBJ);
+        return $productosPorCategoria;
+    }
 }

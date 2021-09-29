@@ -15,7 +15,7 @@ class categoriasController
 
     function listarcategoriasItems()
     {
-        $categItems = $this->model->getcategoriasItems();
-        $this->view->mostrarcategorias($categItems);
+        $categItems = $this->model->getCategoriasItems();
+        $this->view->mostrarCategorias($categItems);
     }
 }
