@@ -12,7 +12,7 @@ class productosModel
 
     function getProductosItems()
     {
-        $sentencia = $this->db->prepare("select * From productos");
+        $sentencia = $this->db->prepare("SELECT * FROM productos");
         $sentencia->execute();
         $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
         return $productos;
@@ -20,7 +20,7 @@ class productosModel
 
     function getProductoItem($id)
     {
-        $sentencia = $this->db->prepare("select * from productos WHERE id_producto=?");
+        $sentencia = $this->db->prepare("SELECT * FROM productos WHERE id_producto=?");
         $sentencia->execute(array($id));
         $producto = $sentencia->fetch(PDO::FETCH_OBJ);
         return $producto;
@@ -28,7 +28,7 @@ class productosModel
 
     function getProductosPorCategoria($id)
     {
-        $sentencia = $this->db->prepare("select * from productos WHERE id_categoria=$id");
+        $sentencia = $this->db->prepare("SELECT * FROM productos WHERE id_categoria=$id");
         $sentencia->execute(array($id));
         $productosPorCategoria = $sentencia->fetchAll(PDO::FETCH_OBJ);
         return $productosPorCategoria;

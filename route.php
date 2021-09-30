@@ -19,9 +19,6 @@ switch ($params[0]) {
     case 'home':
         $productosController->mostrarHome();
         break;
-    case 'verProducto':
-        $productosController->listarProductosItems();
-        break;
     case 'detallesProducto':
         $productosController->mostrarDetallesDelProducto($params[1]);
         break;

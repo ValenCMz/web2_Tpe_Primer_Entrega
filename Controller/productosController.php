@@ -13,15 +13,10 @@ class productosController
         $this->view = new productosView();
     }
 
-    function listarProductosItems()
-    {
-        $prodItems = $this->model->getProductosItems();
-        $this->view->mostrarProductos($prodItems);
-    }
-
     function mostrarHome()
     {
-        $this->view->showHome();
+        $prodItems = $this->model->getProductosItems();
+        $this->view->showHome($prodItems);
     }
 
     function mostrarDetallesDelProducto($id)

@@ -1,21 +1,18 @@
 {include file= 'templates/header.tpl'}
+{* aca tenemos q poner el titulo con la categoria conrespondiente *}
 <table>
     <thead>
-        <th>id_producto</th>
         <th>Color</th>
         <th>Talle</th>
         <th>Stock Disponible</th>
         <th>Precio</th>
-        <th>id_categoria</th>
     </thead>
     {foreach from=$productosPorCategoria item=$producto }
         <tbody>
-            <td>{$producto->id_producto}</td>
             <td>{$producto->color}</td>
             <td>{$producto->talle}</td>
             <td>{$producto->stock}</td>
             <td>{$producto->precio}</td>
-            <td>{$producto->id_categoria}</td>
         </tbody>
     {/foreach}
 </table>

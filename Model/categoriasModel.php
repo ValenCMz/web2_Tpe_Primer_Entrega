@@ -12,7 +12,7 @@ class categoriasModel
 
     function getCategoriasItems()
     {
-        $sentencia = $this->db->prepare("select * From categorias");
+        $sentencia = $this->db->prepare("SELECT * FROM categorias");
         $sentencia->execute();
         $categorias = $sentencia->fetchAll(PDO::FETCH_OBJ);
         return $categorias;
