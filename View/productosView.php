@@ -29,14 +29,15 @@ class productosView
         $this->smarty->display('templates/productosPorCategoria.tpl');
     }
 
-    function mostrarFormDeAgregarProducto($categorias)
+    function mostrarFormDeAgregarProducto($categorias, $prodItems)
     {
         $this->smarty->assign("categorias", $categorias);
+        $this->smarty->assign("productos", $prodItems);
         $this->smarty->display('templates/administrarBaseDeDatos.tpl');
     }
 
-    function showHomeLocation()
+    function redirigirAdministracion()
     {
-        header("Location: " . BASE_URL . "home");
+        header("Location: " . BASE_URL . "administracion");
     }
 }

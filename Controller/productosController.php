@@ -38,12 +38,13 @@ class productosController
     function mostrarFormAgregarProducto()
     {
         $categorias = $this->modelCategorias->getCategoriasItems();
-        $this->view->mostrarFormDeAgregarProducto($categorias);
+        $prodItems = $this->model->getProductosItems();
+        $this->view->mostrarFormDeAgregarProducto($categorias, $prodItems);
     }
 
     function agregarProducto()
     {
         $this->model->agregarProducto($_POST['color'],  $_POST['talle'], $_POST['stock'], $_POST['precio'], $_POST['id_categoria']);
-        $this->view->showHomeLocation();
+        $this->view->redirigirAdministracion();
     }
 }

@@ -27,4 +27,6 @@
     <input type="submit" value="Enviar">
 </form>
 
+{include file= 'templates/listaProductos.tpl'}
+
 {include file= 'templates/footer.tpl'}
