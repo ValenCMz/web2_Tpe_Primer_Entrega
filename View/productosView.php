@@ -28,4 +28,15 @@ class productosView
         $this->smarty->assign('productosPorCategoria', $productosPorCategoria);
         $this->smarty->display('templates/productosPorCategoria.tpl');
     }
+
+    function mostrarFormDeAgregarProducto($categorias)
+    {
+        $this->smarty->assign("categorias", $categorias);
+        $this->smarty->display('templates/administrarBaseDeDatos.tpl');
+    }
+
+    function showHomeLocation()
+    {
+        header("Location: " . BASE_URL . "home");
+    }
 }

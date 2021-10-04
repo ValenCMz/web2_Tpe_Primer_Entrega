@@ -1,0 +1,23 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+.logo {
+    display: flex;
+    width: 15%;
+}
+
+.titulo-productos {
+    padding-top: 20px;
+    margin-left: 20px;
+
+}
+
+.tabla-productos {
+    text-align: center;
+}
+
+/* .container-logo {
+    margin-left: 20px;
+} */

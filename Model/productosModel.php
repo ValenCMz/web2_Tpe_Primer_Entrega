@@ -33,4 +33,12 @@ class productosModel
         $productosPorCategoria = $sentencia->fetchAll(PDO::FETCH_OBJ);
         return $productosPorCategoria;
     }
+
+    function agregarProducto($color, $talle, $stock, $precio, $id_categoria)
+    {
+        $sentencia = $this->db->prepare("INSERT INTO productos(color, talle, stock, precio, id_categoria) VALUES(?, ?, ?, ?, ?)");
+        $sentencia->execute(
+            array($color, $talle, $stock, $precio, $id_categoria)
+        );
+    }
 }
