@@ -1,5 +1,4 @@
 {include file= 'templates/header.tpl'}
-{* aca tenemos q poner el titulo con la categoria conrespondiente *}
 <table>
     <thead>
         <th>Color</th>

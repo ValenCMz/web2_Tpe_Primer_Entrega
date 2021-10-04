@@ -1,8 +1,11 @@
 {include file= 'templates/header.tpl'}
 
-<h1 class="title">TIENDA DE REMERAS</h1>
+<img class="logo" src="img/foto-logo.png" alt="">
 
-<a href="verCategorias/">Ver las categorias enlistadas</a>
+<div class="">
+    <a href="verCategorias/">Ver las categorias enlistadas</a>
+    <a href="administracion/">Administracion</a>
+</div>
 
 {include file= 'templates/listaProductos.tpl'}
 <br>

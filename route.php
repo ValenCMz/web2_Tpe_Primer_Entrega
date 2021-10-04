@@ -28,6 +28,12 @@ switch ($params[0]) {
     case 'productosPorCategoria':
         $productosController->listarProductosPorCategoria($params[1]);
         break;
+    case 'administracion':
+        $productosController->mostrarFormAgregarProducto();
+        break;
+    case 'agregarProducto':
+        $productosController->agregarProducto();
+        break;
     default:
         echo ('404 Page not found');
         break;
