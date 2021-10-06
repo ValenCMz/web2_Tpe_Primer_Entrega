@@ -46,9 +46,9 @@ switch ($params[0]) {
         $productosController->mostrarEditarProducto($params[1]);
         break;
     case 'editarProducto':
-        $productosController->editarProducto($params[1]);
+        $productosController->editarProducto();
         break;
-    case 'mostrarFormularioRegistro' :
+    case 'mostrarFormularioRegistro':
         $registerController->mostrarFormularioRegistro();
         break;
     case 'registrarse':
@@ -58,7 +58,7 @@ switch ($params[0]) {
         $loginController->mostrarLogin();
         break;
     case 'login':
-        $loginController-> login();
+        $loginController->login();
     default:
         echo ('404 Page not found');
         break;

@@ -1,6 +1,7 @@
 {include file= 'templates/header.tpl'}
 
 <form action="editarProducto" method="POST">
+    <input type="hidden" name="idProducto" value="{$producto}">
     <select name="color" id="color">
         <option value="">Seleccione el color</option>
         <option value="rojo">Rojo</option>

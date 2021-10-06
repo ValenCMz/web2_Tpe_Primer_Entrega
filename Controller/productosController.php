@@ -60,9 +60,9 @@ class productosController
         $this->view->mostrarEditarProducto($id, $categorias);
     }
 
-    function editarProducto($id)
+    function editarProducto()
     {
-        $this->model->editarProducto($id, $_POST['color'],  $_POST['talle'], $_POST['stock'], $_POST['precio'], $_POST['id_categoria']);
+        $this->model->editarProducto($_POST['idProducto'], $_POST['color'],  $_POST['talle'], $_POST['stock'], $_POST['precio'], $_POST['id_categoria']);
         $this->view->redirigirAdministracion();
     }
 }
