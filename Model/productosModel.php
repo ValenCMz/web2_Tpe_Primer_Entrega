@@ -37,11 +37,10 @@ class productosModel
     function agregarProducto($color, $talle, $stock, $precio, $id_categoria)
     {
         $sentencia = $this->db->prepare("INSERT INTO productos(color, talle, stock, precio, id_categoria) VALUES(?, ?, ?, ?, ?)");
-        
+
         $sentencia->execute(
             array($color, $talle, $stock, $precio, $id_categoria)
         );
-        var_dump($color, $talle, $stock, $precio, $id_categoria);
     }
 
     function borrarProducto($id)
