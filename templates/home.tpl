@@ -4,6 +4,7 @@
 
 <div class="">
     <a href="verCategorias/">Ver las categorias enlistadas</a>
+    <a href="mostrarFormularioRegistro">Registrarse</a>
     <a href="administracion/">Administracion</a>
 </div>
 

@@ -45,7 +45,6 @@ class productosController
     function agregarProducto()
     {
         $this->model->agregarProducto($_POST['color'],  $_POST['talle'], $_POST['stock'], $_POST['precio'], $_POST['id_categoria']);
-        var_dump($_POST['color']);
         $this->view->redirigirAdministracion();
     }
 

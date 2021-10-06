@@ -41,7 +41,6 @@ class productosModel
         $sentencia->execute(
             array($color, $talle, $stock, $precio, $id_categoria)
         );
-        var_dump($color, $talle, $stock, $precio, $id_categoria);
     }
 
     function borrarProducto($id)
