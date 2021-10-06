@@ -34,6 +34,15 @@ switch ($params[0]) {
     case 'agregarProducto':
         $productosController->agregarProducto();
         break;
+    case 'borrarProducto':
+        $productosController->borrarProducto($params[1]);
+        break;
+    case 'mostrarEditarProducto':
+        $productosController->mostrarEditarProducto($params[1]);
+        break;
+    case 'editarProducto':
+        $productosController->editarProducto($params[1]);
+        break;
     default:
         echo ('404 Page not found');
         break;

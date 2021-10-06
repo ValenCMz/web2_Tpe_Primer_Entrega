@@ -1,7 +1,6 @@
 {include file= 'templates/header.tpl'}
 
-<h1>Agregar un producto a la base de datos</h1>
-<form action="agregarProducto" method="POST">
+<form action="editarProducto" method="POST">
     <select name="color" id="color">
         <option value="">Seleccione el color</option>
         <option value="rojo">Rojo</option>
@@ -24,9 +23,7 @@
             <option value="{$categoria->id_categoria}">{$categoria->nombre}</option>
         {/foreach}
     </select>
-    <input type="submit" value="Enviar">
+    <input type="submit" value="Editar">
 </form>
-
-{include file= 'templates/listarProductosEditables.tpl'}
 
 {include file= 'templates/footer.tpl'}

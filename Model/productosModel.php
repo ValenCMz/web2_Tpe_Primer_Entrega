@@ -41,4 +41,18 @@ class productosModel
             array($color, $talle, $stock, $precio, $id_categoria)
         );
     }
+
+    function borrarProducto($id)
+    {
+        $sentencia = $this->db->prepare("DELETE FROM productos WHERE id_producto=?");
+        $sentencia->execute(array($id));
+    }
+
+    function editarProducto($id, $color, $talle, $stock, $precio, $id_categoria)
+    {
+        $sentencia = $this->db->prepare("UPDATE productos SET color='$color', talle='$talle', stock='$stock', precio='$precio', id_categoria='$id_categoria' WHERE id_producto='$id'");
+        $sentencia->execute(
+            array($id)
+        );
+    }
 }

@@ -47,4 +47,22 @@ class productosController
         $this->model->agregarProducto($_POST['color'],  $_POST['talle'], $_POST['stock'], $_POST['precio'], $_POST['id_categoria']);
         $this->view->redirigirAdministracion();
     }
+
+    function borrarProducto($id)
+    {
+        $this->model->borrarProducto($id);
+        $this->view->redirigirAdministracion();
+    }
+
+    function mostrarEditarProducto($id)
+    {
+        $categorias = $this->modelCategorias->getCategoriasItems();
+        $this->view->mostrarEditarProducto($id, $categorias);
+    }
+
+    function editarProducto($id)
+    {
+        $this->model->editarProducto($id, $_POST['color'],  $_POST['talle'], $_POST['stock'], $_POST['precio'], $_POST['id_categoria']);
+        $this->view->redirigirAdministracion();
+    }
 }

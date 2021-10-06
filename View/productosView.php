@@ -40,4 +40,11 @@ class productosView
     {
         header("Location: " . BASE_URL . "administracion");
     }
+
+    function mostrarEditarProducto($producto, $categorias)
+    {
+        $this->smarty->assign("categorias", $categorias);
+        $this->smarty->assign("producto", $producto);
+        $this->smarty->display('templates/mostrarEditarProducto.tpl');
+    }
 }
