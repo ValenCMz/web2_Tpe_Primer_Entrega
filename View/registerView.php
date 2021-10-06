@@ -11,13 +11,13 @@ class registerView
         $this->smarty = new Smarty();
     }
 
-    function redirigirHome(){
-
+    function redirigirHome()
+    {
         header("Location: " . BASE_URL . "home");
     }
-    
-    function mostrarFormularioRegistro(){
 
+    function mostrarFormularioRegistro()
+    {
         $this->smarty->display('templates/registro.tpl');
     }
-}    
+}
