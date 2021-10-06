@@ -12,15 +12,14 @@ class loginView
     }
 
 
-    function mostrarFormularioLogin($denegado = ''){
+    function mostrarFormularioLogin($denegado = '')
+    {
         $this->smarty->assign('denegado', $denegado);
-
-    $this->smarty->display('templates/login.tpl');
+        $this->smarty->display('templates/login.tpl');
     }
 
     function redirigirHome()
     {
         header("Location: " . BASE_URL . "home");
     }
-
 }

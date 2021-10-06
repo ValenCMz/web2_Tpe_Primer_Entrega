@@ -58,7 +58,11 @@ switch ($params[0]) {
         $loginController->mostrarLogin();
         break;
     case 'login':
-        $loginController->login();
+        $loginController->verificacionDelogin();
+        break;
+    case 'logout':
+        $loginController->logout();
+        break;
     default:
         echo ('404 Page not found');
         break;
