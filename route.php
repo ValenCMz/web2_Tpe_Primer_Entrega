@@ -32,6 +32,7 @@ switch ($params[0]) {
         $productosController->mostrarFormAgregarProducto();
         break;
     case 'agregarProducto':
+        var_dump("werweuriuqiweryi");
         $productosController->agregarProducto();
         break;
     case 'borrarProducto':
