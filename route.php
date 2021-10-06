@@ -1,6 +1,7 @@
 <?php
 require_once 'Controller/productosController.php';
 require_once 'Controller/categoriasController.php';
+require_once 'Controller/registerController.php';
 
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 
@@ -14,6 +15,7 @@ $params = explode('/', $action);
 
 $productosController = new productosController();
 $categoriasController = new categoriasController();
+$registerController = new registerController();
 
 switch ($params[0]) {
     case 'home':
@@ -43,6 +45,12 @@ switch ($params[0]) {
         break;
     case 'editarProducto':
         $productosController->editarProducto($params[1]);
+        break;
+    case 'mostrarFormularioRegistro' :
+        $registerController->mostrarFormularioRegistro();
+        break;
+    case 'registrarse':
+        $registerController->registrarUsuario();
         break;
     default:
         echo ('404 Page not found');
