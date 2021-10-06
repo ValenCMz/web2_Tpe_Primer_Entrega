@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 23-09-2021 a las 20:03:05
--- Versión del servidor: 10.4.20-MariaDB
--- Versión de PHP: 7.3.29
+-- Servidor: localhost
+-- Tiempo de generación: 06-10-2021 a las 19:48:40
+-- Versión del servidor: 10.4.21-MariaDB
+-- Versión de PHP: 7.3.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -65,7 +65,22 @@ INSERT INTO `productos` (`id_producto`, `color`, `talle`, `stock`, `precio`, `id
 (1, 'Rojo', 'XL', 3, 200, 1),
 (2, 'Amarillo', 'L', 4, 100, 3),
 (3, 'Celeste', 'M', 6, 500, 4),
-(4, 'Violeta', 'L', 2, 1000, 2);
+(4, 'Violeta', 'L', 2, 1000, 2),
+(5, 'rojo', 'S', 345, 345, 1),
+(6, 'rojo', 'S', 234, 234, 1),
+(7, 'verde', 'M', 312, 234, 4);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `users`
+--
+
+CREATE TABLE `users` (
+  `id_usuario` int(11) NOT NULL,
+  `nombre` varchar(45) NOT NULL,
+  `clave` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Índices para tablas volcadas
@@ -83,6 +98,34 @@ ALTER TABLE `categorias`
 ALTER TABLE `productos`
   ADD PRIMARY KEY (`id_producto`),
   ADD KEY `id_categoria` (`id_categoria`);
+
+--
+-- Indices de la tabla `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id_usuario`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `categorias`
+--
+ALTER TABLE `categorias`
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de la tabla `productos`
+--
+ALTER TABLE `productos`
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT de la tabla `users`
+--
+ALTER TABLE `users`
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas
