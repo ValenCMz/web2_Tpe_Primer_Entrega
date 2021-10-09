@@ -51,6 +51,9 @@ switch ($params[0]) {
     case 'agregarCategoria':
         $categoriasController->agregarCategoria();
         break;
+    case 'borrarCategoria':
+        $categoriasController->borrarCategoria($params[1]);
+        break;
     case 'mostrarFormularioRegistro':
         $registerController->mostrarFormularioRegistro();
         break;

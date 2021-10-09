@@ -22,12 +22,20 @@ class categoriasController
         $this->view->mostrarCategorias($categItems);
     }
 
-    function agregarCategoria(){
+    function agregarCategoria()
+    {
         $categorias = $this->model->getCategoriasItems();
         $ultimaCategoria = end($categorias);
-        $nuevoId = $ultimaCategoria->id_categoria+1;
+        $nuevoId = $ultimaCategoria->id_categoria + 1;
         $this->authHelper->checkloggedIn();
         $this->model->agregarCategoria($nuevoId, $_POST['nueva_categoria']);
+        $this->view->redirigirAdministracion();
+    }
+
+    function borrarCategoria($id)
+    {
+        $this->authHelper->checkloggedIn();
+        $this->model->borrarCategoria($id);
         $this->view->redirigirAdministracion();
     }
 }
