@@ -34,8 +34,9 @@ class productosController
 
     function listarProductosPorCategoria($id)
     {
+        $nombreDeLaCategoria = $this->modelCategorias->getNombreCategoria($id);
         $productosPorCategoria = $this->model->getProductosPorCategoria($id);
-        $this->view->verProductosPorCategoria($productosPorCategoria);
+        $this->view->verProductosPorCategoria($productosPorCategoria, $nombreDeLaCategoria);
     }
 
     function mostrarFormAgregarProducto()

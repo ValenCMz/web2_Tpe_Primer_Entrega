@@ -1,6 +1,6 @@
 {include file= 'templates/header.tpl'}
-<table>
-    <thead>
+<table class= "table tabla-productos">
+    <thead class="table-dark">
         <th>Nombre de la categoria</th>
     </thead>
     {foreach from=$categorias item=$categoria }

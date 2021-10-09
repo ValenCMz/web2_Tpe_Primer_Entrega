@@ -29,4 +29,13 @@
 
 {include file= 'templates/listarProductosEditables.tpl'}
 
+<h1>Agregar una categoria a la base de datos</h1>
+<form action="agregarCategoria" method="POST">
+    <input type="text" name="nueva_categoria" id="nueva_categoria" placeholder="Ingrese nueva categoria">
+    <input type="submit" value="Enviar">
+</form>
+
+{include file= 'templates/listarCategoriasEditables.tpl'}
+
+
 {include file= 'templates/footer.tpl'}

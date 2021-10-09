@@ -6,7 +6,7 @@ class productosModel
 
     function __construct()
     {
-        //nos conectamos a la base de datos dbname=tpe_web2
+        
         $this->db = new PDO('mysql:host=localhost;' . 'dbname=tpe_web2;charset=utf8', 'root', '');
     }
 
@@ -28,7 +28,7 @@ class productosModel
 
     function getProductosPorCategoria($id)
     {
-        $sentencia = $this->db->prepare("SELECT * FROM productos WHERE id_categoria=$id");
+        $sentencia = $this->db->prepare("SELECT * FROM productos WHERE id_categoria = ?");
         $sentencia->execute(array($id));
         $productosPorCategoria = $sentencia->fetchAll(PDO::FETCH_OBJ);
         return $productosPorCategoria;

@@ -48,6 +48,9 @@ switch ($params[0]) {
     case 'editarProducto':
         $productosController->editarProducto();
         break;
+    case 'agregarCategoria':
+        $categoriasController->agregarCategoria();
+        break;
     case 'mostrarFormularioRegistro':
         $registerController->mostrarFormularioRegistro();
         break;

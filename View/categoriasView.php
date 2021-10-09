@@ -21,4 +21,10 @@ class categoriasView
     {
         $this->smarty->display('templates/home.tpl');
     }
+
+    function redirigirAdministracion()
+    {
+        header("Location: " . BASE_URL . "administracion");
+    }
+
 }
