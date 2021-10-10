@@ -38,4 +38,21 @@ class categoriasController
         $this->model->borrarCategoria($id);
         $this->view->redirigirAdministracion();
     }
+
+    function mostrarEditarCategoria($id)
+    {
+        $this->authHelper->checkloggedIn();
+        $categorias = $this->model->getCategoriasItems();
+        $this->view->mostrarEditarCategoria($id, $categorias);
+        var_dump($id);
+        var_dump($categorias);
+    }
+
+    function editarCategoria()
+    {
+        $this->authHelper->checkloggedIn();
+        $this->model->getCategoriasItems();
+        $this->model->editarCategoria($_POST['idCategoria'], $_POST['nueva_categoria']);
+        $this->view->redirigirAdministracion();
+    }
 }

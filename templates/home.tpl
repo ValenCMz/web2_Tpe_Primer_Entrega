@@ -10,6 +10,8 @@
     <a href="administracion/">Administracion</a>
 </div>
 
+
+
 {include file= 'templates/listaProductos.tpl'}
 <br>
 

@@ -38,4 +38,12 @@ class categoriasModel
         $sentencia = $this->db->prepare("DELETE FROM categorias WHERE id_categoria=?");
         $sentencia->execute(array($id));
     }
+
+    function editarCategoria($id, $nuevaCategoria)
+    {
+        $sentencia = $this->db->prepare("UPDATE categorias SET id_categoria='$id', nombre='$nuevaCategoria' WHERE id_categoria='$id'");
+        $sentencia->execute(
+            array($id)
+        );
+    }
 }

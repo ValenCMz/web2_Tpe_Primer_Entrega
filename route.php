@@ -36,7 +36,6 @@ switch ($params[0]) {
         $productosController->mostrarFormAgregarProducto();
         break;
     case 'agregarProducto':
-        var_dump("werweuriuqiweryi");
         $productosController->agregarProducto();
         break;
     case 'borrarProducto':
@@ -53,6 +52,12 @@ switch ($params[0]) {
         break;
     case 'borrarCategoria':
         $categoriasController->borrarCategoria($params[1]);
+        break;
+    case 'mostrarEditarCategoria':
+        $categoriasController->mostrarEditarCategoria($params[1]);
+        break;
+    case 'editarCategoria':
+        $categoriasController->editarCategoria();
         break;
     case 'mostrarFormularioRegistro':
         $registerController->mostrarFormularioRegistro();
