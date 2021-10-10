@@ -9,14 +9,16 @@
 }
 
 .titulo-productos {
-    padding-top: 20px;
-    margin-left: 20px;
-
+    display: flex;
+    justify-content: center;
+    font-size: x-large;
+    margin: 20px;
 }
 
-.tabla-productos {
+
+/* .tabla-productos {
     text-align: center;
-}
+} */
 
 /* .container-logo {
     margin-left: 20px;
