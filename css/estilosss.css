@@ -1,15 +1,7 @@
-* {
-    padding: 0px;
-    margin: 0px;
-}
-
-.logo {
+.boton-home {
     display: flex;
-    width: 15%;
+    justify-content: start;
 }
-
-
-
 
 /* .tabla-productos {
     text-align: center;
