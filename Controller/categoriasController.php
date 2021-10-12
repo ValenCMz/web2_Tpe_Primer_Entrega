@@ -44,8 +44,6 @@ class categoriasController
         $this->authHelper->checkloggedIn();
         $categorias = $this->model->getCategoriasItems();
         $this->view->mostrarEditarCategoria($id, $categorias);
-        var_dump($id);
-        var_dump($categorias);
     }
 
     function editarCategoria()

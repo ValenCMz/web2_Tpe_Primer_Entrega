@@ -27,9 +27,9 @@ class categoriasView
         header("Location: " . BASE_URL . "administracion");
     }
 
-    function mostrarEditarCategoria($categorias)
+    function mostrarEditarCategoria($id,$categorias)
     {
-        $this->smarty->assign("categorias", $categorias);
+        $this->smarty->assign("id_categoria", $id);
         $this->smarty->display('templates/mostrarEditarCategoria.tpl');
     }
 }

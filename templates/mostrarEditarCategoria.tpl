@@ -1,7 +1,7 @@
 {include file= 'templates/header.tpl'}
 
 <form action="editarCategoria" method="POST">
-    <input type="hidden" name="idCategoria" value="{$categorias}">
+    <input type="hidden" name="idCategoria" value="{$id_categoria}">
     <input type="text" name="nueva_categoria" id="nueva_categoria" placeholder="Ingrese nueva categoria">
     <input type="submit" value="Enviar">
 </form>
