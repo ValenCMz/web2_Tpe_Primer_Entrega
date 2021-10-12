@@ -1,7 +1,6 @@
 {include file= 'templates/header.tpl'}
-<u>
-    <h2 class="titulo-productos">Listado de todas las categorias disponibles: </h2>
-</u>
+
+    <h1 class="text-lg leading-6 font-medium text-white bg-indigo-600 p-6">Listado de Categorías: </h1>
 <div class="flex flex-col">
     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
@@ -34,4 +33,8 @@
                         </tbody>
                     {/foreach}
                 </table>
+            </div>
+        </div>
+    </div>
+</div>
 {include file= 'templates/footer.tpl'}
