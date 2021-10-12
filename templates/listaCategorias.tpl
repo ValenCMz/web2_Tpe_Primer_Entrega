@@ -30,7 +30,7 @@
 </div>
 <div class="lg:grid lg:grid-cols-12 lg:gap-x-5">
     <div class="space-y-6 sm:px-6 lg:px-0 lg:col-span-9">
-        <div class="px-4 py-3 bg-gray-50 text-left sm:px-6">
+        <div class="px-4 py-3 text-left sm:px-6">
             <a href="home/"
                 class="bg-indigo-600 border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                 Volver al home
