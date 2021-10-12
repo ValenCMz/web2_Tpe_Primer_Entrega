@@ -5,19 +5,11 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <div class="flex">
-                <div class="-ml-2 mr-2 flex items-center md:hidden">
-
-                    <button type="button"
-                        class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
-                        aria-controls="mobile-menu" aria-expanded="false">
-                        <span class="sr-only"></span>
-
-                        <img src="img/logo-tienda.png" alt="logo tienda de remeras" class="block h-16 w-auto" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16M4 18h16" />
-
-                    </button>
+               
+                <div class="flex-shrink-0 flex items-center">
+                    <img class="block lg:hidden h-16 w-auto"
+                        src="img/logo-tienda.png" alt="Workflow">
+                    <img class="hidden lg:block h-16 w-auto" src="img/logo-tienda.png" alt="Logo tienda de remeras">
                 </div>
                 <div class="hidden md:ml-6 md:flex md:space-x-8">
                     <a href=""
@@ -49,6 +41,8 @@
 
         </div>
 </nav>
+
+
 
 
 {include file= 'templates/listaProductos.tpl'}
