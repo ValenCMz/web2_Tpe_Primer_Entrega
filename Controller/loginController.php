@@ -1,6 +1,7 @@
 <?php
 require_once "./Model/userModel.php";
 require_once "./View/loginView.php";
+require_once "./View/productosView.php";
 
 class loginController
 {
@@ -12,6 +13,7 @@ class loginController
     {
         $this->model = new userModel();
         $this->view = new loginView();
+        $this->productosView = new  productosView();
     }
 
     function mostrarLogin()
@@ -25,14 +27,17 @@ class loginController
             $userNombre = $_POST['nombre'];
             $userClave = $_POST['clave'];
 
+
             $nombre = $this->model->obtenerUsuarios($userNombre);
             if ($nombre && password_verify($userClave, $nombre->clave)) {
                 session_start();
+
 
                 $_SESSION["nombre"] = $userNombre;
 
                 $this->view->redirigirHome();
             } else {
+
                 $this->view->mostrarFormularioLogin('Acceso denegado. Vuelva a intentar');
             }
         }

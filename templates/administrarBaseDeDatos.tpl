@@ -1,7 +1,7 @@
 {include file= 'templates/header.tpl'}
 <div class="bg-white shadow sm:rounded-lg">
     <div class=" space-y-6 sm:px-6 lg:px-0 lg:col-span-9">
-        <form action="editarProducto" method="POST">
+        <form action="agregarProducto" method="POST">
             <div class="shadow sm:rounded-md sm:overflow-hidden">
                 <div class="bg-white py-6 px-4 space-y-6 sm:p-6">
                     <div>

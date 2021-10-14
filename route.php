@@ -1,7 +1,6 @@
 <?php
 require_once 'Controller/productosController.php';
 require_once 'Controller/categoriasController.php';
-require_once 'Controller/registerController.php';
 require_once 'Controller/loginController.php';
 
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
@@ -16,7 +15,6 @@ $params = explode('/', $action);
 
 $productosController = new productosController();
 $categoriasController = new categoriasController();
-$registerController = new registerController();
 $loginController = new loginController();
 
 switch ($params[0]) {
@@ -58,12 +56,6 @@ switch ($params[0]) {
         break;
     case 'editarCategoria':
         $categoriasController->editarCategoria();
-        break;
-    case 'mostrarFormularioRegistro':
-        $registerController->mostrarFormularioRegistro();
-        break;
-    case 'registrarse':
-        $registerController->registrarUsuario();
         break;
     case 'mostrarFormularioLogin':
         $loginController->mostrarLogin();

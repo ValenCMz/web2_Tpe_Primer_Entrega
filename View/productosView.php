@@ -11,8 +11,13 @@ class productosView
         $this->smarty = new Smarty();
     }
 
+    function mostrarLogout()
+    {
+    }
+
     function showHome($productos)
     {
+        $this->smarty->assign('usuario', $_SESSION);
         $this->smarty->assign('productos', $productos);
         $this->smarty->assign('usuario', $_SESSION);
         $this->smarty->display('templates/home.tpl');
