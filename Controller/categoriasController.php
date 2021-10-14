@@ -24,11 +24,8 @@ class categoriasController
 
     function agregarCategoria()
     {
-        $categorias = $this->model->getCategoriasItems();
-        $ultimaCategoria = end($categorias);
-        $nuevoId = $ultimaCategoria->id_categoria + 1;
         $this->authHelper->checkloggedIn();
-        $this->model->agregarCategoria($nuevoId, $_POST['nueva_categoria']);
+        $this->model->agregarCategoria($_POST['nueva_categoria']);
         $this->view->redirigirAdministracion();
     }
 

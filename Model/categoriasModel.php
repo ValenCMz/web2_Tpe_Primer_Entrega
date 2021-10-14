@@ -25,11 +25,11 @@ class categoriasModel
         return $categoria;
     }
 
-    function agregarCategoria($nuevoId, $nombre)
+    function agregarCategoria($nombre)
     {
-        $sentencia = $this->db->prepare("INSERT INTO categorias(id_categoria ,nombre) VALUES(?, ?)");
+        $sentencia = $this->db->prepare("INSERT INTO categorias(nombre) VALUES(?)");
         $sentencia->execute(
-            array($nuevoId, $nombre)
+            array($nombre)
         );
     }
 
@@ -41,7 +41,7 @@ class categoriasModel
 
     function editarCategoria($id, $nuevaCategoria)
     {
-        $sentencia = $this->db->prepare("UPDATE categorias SET id_categoria='$id', nombre='$nuevaCategoria' WHERE id_categoria='$id'");
+        $sentencia = $this->db->prepare("UPDATE categorias SET id_categoria='$id', nombre='$nuevaCategoria' WHERE id_categoria=?");
         $sentencia->execute(
             array($id)
         );

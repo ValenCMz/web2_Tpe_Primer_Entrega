@@ -22,6 +22,7 @@ class productosController
 
     function mostrarHome()
     {
+        session_start();
         $prodItems = $this->model->getProductosItems();
         $this->view->showHome($prodItems);
     }
