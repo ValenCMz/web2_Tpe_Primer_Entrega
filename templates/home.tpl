@@ -25,6 +25,10 @@
                             class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
                             Log out
                         </a>
+                         <a href="administracion/"
+                        class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        Administración
+                    </a>
                     {else}
                         <a href="mostrarFormularioLogin/"
                             class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
@@ -32,10 +36,7 @@
                         </a>
                     {/if}
 
-                    <a href="administracion/"
-                        class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
-                        Administración
-                    </a>
+                   
                 </div>
             </div>
 
