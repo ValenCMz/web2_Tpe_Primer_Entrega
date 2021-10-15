@@ -51,9 +51,9 @@ class productosModel
 
     function editarProducto($id, $color, $talle, $stock, $precio, $id_categoria)
     {
-        $sentencia = $this->db->prepare("UPDATE productos SET color='$color', talle='$talle', stock='$stock', precio='$precio', id_categoria='$id_categoria' WHERE id_producto='$id'");
+        $sentencia = $this->db->prepare("UPDATE productos SET color=?, talle=?, stock=?, precio=?, id_categoria=? WHERE id_producto=?");
         $sentencia->execute(
-            array($id)
+            array($color, $talle, $stock, $precio, $id_categoria, $id)
         );
     }
 }

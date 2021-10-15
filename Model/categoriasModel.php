@@ -41,9 +41,9 @@ class categoriasModel
 
     function editarCategoria($id, $nuevaCategoria)
     {
-        $sentencia = $this->db->prepare("UPDATE categorias SET id_categoria='$id', nombre='$nuevaCategoria' WHERE id_categoria=?");
+        $sentencia = $this->db->prepare("UPDATE categorias SET id_categoria=?, nombre=? WHERE id_categoria=?");
         $sentencia->execute(
-            array($id)
+            array($id, $nuevaCategoria, $id)
         );
     }
 }
