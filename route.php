@@ -66,6 +66,9 @@ switch ($params[0]) {
     case 'logout':
         $loginController->logout();
         break;
+    case 'eliminarProductos':
+        $productosController->eliminarProductos($params[1]);
+        break;
     default:
         echo ('404 Page not found');
         break;

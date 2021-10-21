@@ -2,18 +2,24 @@
 require_once "./Model/categoriasModel.php";
 require_once "./View/categoriasView.php";
 require_once "./Helpers/authHelper.php";
+require_once "./Model/productosModel.php";
+require_once "./View/productosView.php";
 
 class categoriasController
 {
     private $model;
     private $view;
     private $authHelper;
+    private $prod_model;
+    private $prod_view;
 
     function __construct()
     {
         $this->model = new categoriasModel();
         $this->view = new categoriasView();
         $this->authHelper = new AuthHelper();
+        $this->prod_model = new productosModel();
+        $this->prod_view = new productosView();
     }
 
     function listarcategoriasItems()
@@ -32,8 +38,14 @@ class categoriasController
     function borrarCategoria($id)
     {
         $this->authHelper->checkloggedIn();
-        $this->model->borrarCategoria($id);
-        $this->view->redirigirAdministracion();
+        $products = $this->prod_model->getProductosPorCategoria($id);
+        if (empty($products)) {
+            $this->model->borrarCategoria($id);
+            $this->view->redirigirAdministracion();
+        }else{
+            $categoria = $this->model->getNombreCategoria($id);
+            $this->view->warning_delete_prod($products, $categoria, $id);
+        }
     }
 
     function mostrarEditarCategoria($id)

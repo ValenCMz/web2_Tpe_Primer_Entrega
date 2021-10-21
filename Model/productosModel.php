@@ -56,4 +56,5 @@ class productosModel
             array($color, $talle, $stock, $precio, $id_categoria, $id)
         );
     }
+
 }

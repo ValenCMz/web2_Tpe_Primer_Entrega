@@ -75,4 +75,14 @@ class productosController
         $this->model->editarProducto($_POST['idProducto'], $_POST['color'],  $_POST['talle'], $_POST['stock'], $_POST['precio'], $_POST['id_categoria']);
         $this->view->redirigirAdministracion();
     }
+
+    function eliminarProductos($id){
+        $productos = $this->model->getProductosPorCategoria($id);
+        foreach ($productos as $producto){
+            $id_producto = $producto->id_producto;
+            $this->model->borrarProducto($id_producto);
+        }
+        $this->modelCategorias->borrarCategoria($id);
+        $this->view->redirigirAdministracion();
+    }
 }

@@ -32,4 +32,11 @@ class categoriasView
         $this->smarty->assign("id_categoria", $id);
         $this->smarty->display('templates/mostrarEditarCategoria.tpl');
     }
+
+    function warning_delete_prod($products, $categoria, $id){
+        $this->smarty->assign("products", $products);
+        $this->smarty->assign("categoria", $categoria);
+        $this->smarty->assign("id", $id);
+        $this->smarty->display('templates/warning_delete_prod.tpl');
+    }
 }
