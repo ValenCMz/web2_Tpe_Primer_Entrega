@@ -26,21 +26,21 @@
                                 Detalle del producto</th>
                         </tr>
                     </thead>
-                    {foreach from=$productos item=$producto}
+                    {foreach from=$products item=$product}
                         <tbody class="bg-white divide-y divide-gray-200">
                             <tr>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{$producto->color}
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{$product->color}
                                 </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{$producto->talle}
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{$product->size}
                                 </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{$producto->stock}
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{$product->stock}
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                    ${$producto->precio}</td>
+                                    ${$product->price}</td>
 
                                 <td>
                                     <a class="text-indigo-600 hover:text-indigo-900 px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"
-                                        href="detallesProducto/{$producto->id_producto}">Detalles</a>
+                                        href="productDetail/{$product->id_product}">Detalles</a>
                                 </td>
 
                             </tr>

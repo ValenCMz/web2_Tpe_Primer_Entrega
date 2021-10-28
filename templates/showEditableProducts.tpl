@@ -1,6 +1,4 @@
-
-
-    <h1 class="text-lg leading-6 font-medium text-white bg-indigo-600 p-6">Listado de Productos: </h1>
+<h1 class="text-lg leading-6 font-medium text-white bg-indigo-600 p-6">Listado de Productos: </h1>
 
 <div class="flex flex-col">
     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -32,29 +30,29 @@
                                 Borrar del producto</th>
                         </tr>
                     </thead>
-                    {foreach from=$productos item=$producto}
+                    {foreach from=$products item=$product}
                         <tbody class="bg-white divide-y divide-gray-200">
                             <tr>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{$producto->color}
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{$product->color}
                                 </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{$producto->talle}
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{$product->size}
                                 </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{$producto->stock}
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{$product->stock}
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                    ${$producto->precio}
+                                    ${$product->price}
                                 </td>
                                 <td class="detalle-producto"><a
                                         class="text-indigo-600 hover:text-indigo-900 px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"
-                                        href="detallesProducto/{$producto->id_producto}">Detalles</a>
+                                        href="productDetail/{$product->id_product}">Detalles</a>
                                 </td>
                                 <td class="detalle-producto"><a
                                         class="text-indigo-600 hover:text-indigo-900 px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"
-                                        href="mostrarEditarProducto/{$producto->id_producto}">Editar</a>
+                                        href="showEditableProduct/{$product->id_product}">Editar</a>
                                 </td>
                                 <td class="detalle-producto"><a
                                         class="text-indigo-600 hover:text-indigo-900 px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"
-                                        href="borrarProducto/{$producto->id_producto}">Borrar</a> </td>
+                                        href="deleteProduct/{$product->id_product}">Borrar</a> </td>
                             </tr>
                         </tbody>
                     {/foreach}

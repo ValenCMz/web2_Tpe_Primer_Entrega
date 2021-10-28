@@ -10,8 +10,8 @@ class AuthHelper
     function checkloggedIn()
     {
         session_start();
-        if (!isset($_SESSION["nombre"])) {
-            header("Location: " . BASE_URL . "mostrarFormularioLogin");
+        if (!isset($_SESSION["name"])) {
+            header("Location: " . BASE_URL . "administration");
         }
     }
 

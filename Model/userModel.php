@@ -9,11 +9,11 @@ class userModel
         $this->db = new PDO('mysql:host=localhost;' . 'dbname=tpe_web2;charset=utf8', 'root', '');
     }
 
-    function obtenerUsuarios($nombre)
+    function getUser($name)
     {
-        $query = $this->db->prepare('SELECT * FROM users WHERE nombre=?');
-        $query->execute([$nombre]);
-        $usuario =  $query->fetch(PDO::FETCH_OBJ);
-        return $usuario;
+        $query = $this->db->prepare('SELECT * FROM user WHERE name=?');
+        $query->execute([$name]);
+        $user =  $query->fetch(PDO::FETCH_OBJ);
+        return $user;
     }
 }

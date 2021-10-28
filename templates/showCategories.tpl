@@ -14,12 +14,12 @@
                                 Nombre de la categoria</th>
                         </tr>
                     </thead>
-                    {foreach from=$categorias item=$categoria }
+                    {foreach from=$categories item=$category }
                         <tbody class="bg-white divide-y divide-gray-200">
-                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{$categoria->nombre}
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{$category->name}
                             </td>
                             <td><a class="text-indigo-600 hover:text-indigo-900 px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"
-                                    href="productosPorCategoria/{$categoria->id_categoria}">Ver productos de esta
+                                    href="productsByCategory/{$category->id_category}">Ver productos de esta
                                     categoria</a> </td>
                         </tbody>
                     {/foreach}

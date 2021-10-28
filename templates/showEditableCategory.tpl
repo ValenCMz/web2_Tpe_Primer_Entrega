@@ -11,10 +11,10 @@
                 Ingrese el nombre de la nueva categoría
             </p>
         </div>
-        <form action="editarCategoria" method="POST" class="mt-5 sm:flex sm:items-center">
-            <input type="hidden" name="idCategoria" value="{$id_categoria}">
+        <form action="updateCategory" method="POST" class="mt-5 sm:flex sm:items-center">
+            <input type="hidden" name="idCategory" value="{$id_category}">
             <div class="w-full sm:max-w-xs">
-                <input type="text" name="nueva_categoria" id="nueva_categoria"
+                <input type="text" name="newCategory" id="newCategory"
                     class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
                     placeholder="Categoría">
             </div>

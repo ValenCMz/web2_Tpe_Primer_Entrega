@@ -1,7 +1,7 @@
 <?php
 require_once "./Model/userModel.php";
 require_once "./View/loginView.php";
-require_once "./View/productosView.php";
+require_once "./View/productView.php";
 
 class loginController
 {
@@ -13,32 +13,30 @@ class loginController
     {
         $this->model = new userModel();
         $this->view = new loginView();
-        $this->productosView = new  productosView();
     }
 
-    function mostrarLogin()
+    function showLogin()
     {
-        $this->view->mostrarFormularioLogin();
+        $this->view->showLogin();
     }
 
-    function verificacionDelogin()
+    function verifyLogin()
     {
-        if (!empty($_POST['nombre']) && !empty($_POST['clave'])) {
-            $userNombre = $_POST['nombre'];
-            $userClave = $_POST['clave'];
+        if (!empty($_POST['name']) && !empty($_POST['password'])) {
+            $userName = $_POST['name'];
+            $userPassword = $_POST['password'];
 
 
-            $nombre = $this->model->obtenerUsuarios($userNombre);
-            if ($nombre && password_verify($userClave, $nombre->clave)) {
+            $name = $this->model->getUser($userName);
+            if ($name && password_verify($userPassword, $name->password)) {
                 session_start();
 
+                $_SESSION["name"] = $userName;
 
-                $_SESSION["nombre"] = $userNombre;
-
-                $this->view->redirigirHome();
+                $this->view->redirectHome();
             } else {
 
-                $this->view->mostrarFormularioLogin('Acceso denegado. Vuelva a intentar');
+                $this->view->showLogin('Acceso denegado. Vuelva a intentar');
             }
         }
     }
@@ -47,6 +45,6 @@ class loginController
     {
         session_start();
         session_destroy();
-        $this->view->mostrarFormularioLogin("Te deslogueaste");
+        $this->view->showLogin("Te deslogueaste");
     }
 }

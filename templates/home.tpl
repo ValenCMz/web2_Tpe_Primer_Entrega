@@ -16,27 +16,27 @@
                         Home
                     </a>
 
-                    <a href="verCategorias/"
+                    <a href="showCategories/"
                         class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
                         Ver las categorias enlistadas
                     </a>
-                    {if !empty($usuario)}
+                    {if !empty($user)}
                         <a href="logout/"
                             class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
                             Log out
                         </a>
-                         <a href="administracion/"
-                        class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
-                        Administración
-                    </a>
+                        <a href="administration/"
+                            class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Administración
+                        </a>
                     {else}
-                        <a href="mostrarFormularioLogin/"
+                        <a href="showLogin/"
                             class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
                             Log In
                         </a>
                     {/if}
 
-                   
+
                 </div>
             </div>
 
@@ -47,7 +47,7 @@
 
 
 
-{include file= 'templates/listaProductos.tpl'}
+{include file= 'templates/showProducts.tpl'}
 <br>
 
 {include file= 'templates/footer.tpl'}
