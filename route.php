@@ -3,6 +3,7 @@ require_once 'Controller/productController.php';
 require_once 'Controller/categoryController.php';
 require_once 'Controller/loginController.php';
 require_once 'Controller/registerController.php';
+require_once 'Controller/adminController.php';
 
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 
@@ -18,6 +19,7 @@ $productController = new productController();
 $categoryController = new categoryController();
 $loginController = new loginController();
 $registerController = new registerController();
+$adminController = new adminController();
 
 
 switch ($params[0]) {
@@ -81,6 +83,10 @@ switch ($params[0]) {
     case 'showAdminCategories':
         $categoryController->showAdminCategories();
         break;
+    case 'showAdminUsers':
+        $adminController->showAdminUsers();
+        break;
+            
     default:
         echo ('404 Page not found');
         break;
