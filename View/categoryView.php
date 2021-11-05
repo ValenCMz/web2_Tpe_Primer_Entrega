@@ -35,9 +35,15 @@ class categoryView
 
     function warningDeleteProducts($products, $category, $id)
     {
-        $this->smarty->assign("products", $products);
+
         $this->smarty->assign("category", $category);
         $this->smarty->assign("id", $id);
         $this->smarty->display('templates/warningDeleteProducts.tpl');
+    }
+
+    function showAdminCategories($categories)
+    {
+        $this->smarty->assign("categories", $categories);
+        $this->smarty->display('templates/adminCategories.tpl');
     }
 }

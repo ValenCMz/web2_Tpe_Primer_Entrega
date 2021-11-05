@@ -62,4 +62,10 @@ class categoryController
         $this->model->updateCategory($_POST['idCategory'], $_POST['newCategory']);
         $this->view->redirectAdmin();
     }
+
+    function showAdminCategories()
+    {
+        $categories = $this->model->getCategories();
+        $this->view->showAdminCategories($categories);
+    }
 }

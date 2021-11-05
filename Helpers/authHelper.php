@@ -15,7 +15,6 @@ class AuthHelper
         }
     }
 
-
     function logout()
     {
         session_start();

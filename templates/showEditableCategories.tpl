@@ -25,7 +25,7 @@
                             </td>
                             <td class="detalle-producto"><a
                                     class="text-indigo-600 hover:text-indigo-900 px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"
-                                    href="shoowEditableCategories/{$category->id_category}">Editar</a> </td>
+                                    href="showEditableCategories/{$category->id_category}">Editar</a> </td>
                             <td class="detalle-producto"><a
                                     class="text-indigo-600 hover:text-indigo-900 px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"
                                     href="deleteCategory/{$category->id_category}">Borrar</a>
