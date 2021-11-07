@@ -9,10 +9,10 @@ class userModel
         $this->db = new PDO('mysql:host=localhost;' . 'dbname=tpe_web2;charset=utf8', 'root', '');
     }
 
-    function getUser($name)
+    function getUserByEmail($email)
     {
-        $query = $this->db->prepare('SELECT * FROM user WHERE name=?');
-        $query->execute([$name]);
+        $query = $this->db->prepare('SELECT * FROM user WHERE email=?');
+        $query->execute([$email]);
         $user =  $query->fetch(PDO::FETCH_OBJ);
         return $user;
     }
@@ -24,11 +24,11 @@ class userModel
         return $users;
     }
 
-    function insertUser($name, $password)
+    function insertUser($email, $password)
     {
-        $query = $this->db->prepare("INSERT INTO user(name, password) VALUES(?, ?)");
+        $query = $this->db->prepare("INSERT INTO user(email, password) VALUES(?, ?)");
         $query->execute(
-            array($name, $password)
+            array($email, $password)
         );
 
         $user =  $query->fetch(PDO::FETCH_OBJ);

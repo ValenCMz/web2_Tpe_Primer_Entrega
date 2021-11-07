@@ -25,15 +25,16 @@ class registerController
 
     function registerUser()
     {
-        $userName = $_POST['name'];
+        $userEmail = $_POST['email'];
         $userPassword = password_hash($_POST['password'], PASSWORD_BCRYPT);
+        $user = $this->model->getUserByEmail($userEmail);
+        if(isset($user)){
+            $this->view->showRegisterForm("El email que ingreso ya existe, intentelo nuevamente");
 
-        $user = $this->model->insertUser($userName, $userPassword);
-
-        if (isset($user)) {
-            $this->controllerLogin->verifyLogin();
-        } else {
-            $this->view->showRegisterForm("Inténtelo nuevamente");
+            // $this->controllerLogin->verifyLogin();
         }
+        
+        $insertUser = $this->model->insertUser($userEmail, $userPassword);
+    
     }
 }

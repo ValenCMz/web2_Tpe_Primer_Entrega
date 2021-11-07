@@ -2,17 +2,20 @@
 require_once "./Model/userModel.php";
 require_once "./View/loginView.php";
 require_once "./View/productView.php";
+require_once "./Helpers/authHelper.php";
 
 class loginController
 {
 
     private $model;
     private $view;
+    private $helper;
 
     function __construct()
     {
         $this->model = new userModel();
         $this->view = new loginView();
+        $this->helper = new AuthHelper;
     }
 
     function showLogin()
@@ -22,23 +25,31 @@ class loginController
 
     function verifyLogin()
     {
-        if (!empty($_POST['name']) && !empty($_POST['password'])) {
-            $userName = $_POST['name'];
+        if (!empty($_POST['email']) && !empty($_POST['password'])) {
+            $userEmail = $_POST['email'];
             $userPassword = $_POST['password'];
 
-
-            $name = $this->model->getUser($userName);
-            if ($name && password_verify($userPassword, $name->password)) {
+            $user = $this->model->getUserByEmail($userEmail);
+            if ($user && password_verify($userPassword, $user->password)) {
                 session_start();
 
-                $_SESSION["name"] = $userName;
-
+                $_SESSION["email"] = $userEmail;
+                // $_SESSION['admin'] = $user->admin;
                 $this->view->redirectHome();
+                // if($_SESSION['admin']==1){
+                //     $this->helper->location();
+                // }
+                // if($_SESSION['admin'] != 1){
+                //     $this->helper->location();
+                // }
             } else {
-
                 $this->view->showLogin('Acceso denegado. Vuelva a intentar');
             }
         }
+    }
+
+    function verifyAdmin(){
+        
     }
 
     function logout()

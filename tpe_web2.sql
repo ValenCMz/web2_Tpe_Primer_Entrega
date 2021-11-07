@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost
--- Tiempo de generación: 14-10-2021 a las 17:38:16
--- Versión del servidor: 10.4.21-MariaDB
--- Versión de PHP: 7.3.31
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 07-11-2021 a las 22:32:30
+-- Versión del servidor: 10.4.20-MariaDB
+-- Versión de PHP: 7.3.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,120 +24,167 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `categorias`
+-- Estructura de tabla para la tabla `category`
 --
 
-CREATE TABLE `categorias` (
-  `id_categoria` int(11) NOT NULL,
-  `nombre` varchar(45) NOT NULL
+CREATE TABLE `category` (
+  `id_category` int(11) NOT NULL,
+  `name` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `categorias`
+-- Volcado de datos para la tabla `category`
 --
 
-INSERT INTO `categorias` (`id_categoria`, `nombre`) VALUES
-(2, 'Masculino'),
-(3, 'Niños'),
-(4, 'Unisex');
+INSERT INTO `category` (`id_category`, `name`) VALUES
+(1, 'Femenino'),
+(4, 'Masculino'),
+(5, 'Niños'),
+(6, 'Unisex');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `productos`
+-- Estructura de tabla para la tabla `comment`
 --
 
-CREATE TABLE `productos` (
-  `id_producto` int(11) NOT NULL,
+CREATE TABLE `comment` (
+  `id_comment` int(11) NOT NULL,
+  `content` varchar(300) NOT NULL,
+  `score` int(11) NOT NULL,
+  `id_author` int(11) NOT NULL,
+  `id_product` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `comment`
+--
+
+INSERT INTO `comment` (`id_comment`, `content`, `score`, `id_author`, `id_product`) VALUES
+(1, 'Muy bonito el producto che', 5, 1, 0),
+(2, 'Y ahora que hago', 1, 1, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `product`
+--
+
+CREATE TABLE `product` (
+  `id_product` int(11) NOT NULL,
   `color` varchar(45) NOT NULL,
-  `talle` varchar(45) DEFAULT NULL,
-  `stock` int(11) DEFAULT NULL,
-  `precio` float NOT NULL,
-  `id_categoria` int(11) NOT NULL
+  `size` varchar(5) NOT NULL,
+  `stock` int(11) NOT NULL,
+  `price` float NOT NULL,
+  `id_category` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `productos`
+-- Volcado de datos para la tabla `product`
 --
 
-INSERT INTO `productos` (`id_producto`, `color`, `talle`, `stock`, `precio`, `id_categoria`) VALUES
-(4, 'Violeta', 'L', 2, 1000, 2),
-(7, 'verde', 'M', 312, 234, 4),
-(8, 'amarillo', 'XL', 1, 1, 2);
+INSERT INTO `product` (`id_product`, `color`, `size`, `stock`, `price`, `id_category`) VALUES
+(2, 'verde', 'L', 1000, 9108900, 1),
+(3, 'azul', 'S', 213, 12331, 1),
+(4, 'amarillo', 'M', 14241, 412412, 4),
+(5, 'rojo', 'M', 543543, 3333, 5),
+(6, 'amarillo', 'L', 1231, 1111, 6);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `users`
+-- Estructura de tabla para la tabla `user`
 --
 
-CREATE TABLE `users` (
-  `id_usuario` int(11) NOT NULL,
-  `nombre` varchar(45) NOT NULL,
-  `clave` varchar(100) NOT NULL
+CREATE TABLE `user` (
+  `id_user` int(11) NOT NULL,
+  `name` varchar(45) NOT NULL,
+  `password` varchar(245) NOT NULL,
+  `admin` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `users`
+-- Volcado de datos para la tabla `user`
 --
 
-INSERT INTO `users` (`id_usuario`, `nombre`, `clave`) VALUES
-(8, 'camila', '$2y$10$nu9aXQIWijLcdLxh2szGl.adiPD6xYmoMrMT5U2MR1WInRw7MkHu6');
+INSERT INTO `user` (`id_user`, `name`, `password`, `admin`) VALUES
+(1, 'Valentin', '$2y$10$DVcibF0tEwx.4DlBWnsCk.4J.TPvK08U82esltUA8I6dA5s31dVJC', 0),
+(6, 'prueba', '$2y$10$HWQ07juP/O6XHQRk0Cx18uCRX7jFSAmQBNcvxXMogKObSlppO.gHC', 0);
 
 --
 -- Índices para tablas volcadas
 --
 
 --
--- Indices de la tabla `categorias`
+-- Indices de la tabla `category`
 --
-ALTER TABLE `categorias`
-  ADD PRIMARY KEY (`id_categoria`);
+ALTER TABLE `category`
+  ADD PRIMARY KEY (`id_category`);
 
 --
--- Indices de la tabla `productos`
+-- Indices de la tabla `comment`
 --
-ALTER TABLE `productos`
-  ADD PRIMARY KEY (`id_producto`),
-  ADD KEY `id_categoria` (`id_categoria`);
+ALTER TABLE `comment`
+  ADD PRIMARY KEY (`id_comment`),
+  ADD KEY `fk_comment_user` (`id_author`),
+  ADD KEY `fk_comment_product` (`id_product`);
 
 --
--- Indices de la tabla `users`
+-- Indices de la tabla `product`
 --
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id_usuario`);
+ALTER TABLE `product`
+  ADD PRIMARY KEY (`id_product`),
+  ADD KEY `fk_product_category` (`id_category`);
+
+--
+-- Indices de la tabla `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id_user`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT de la tabla `categorias`
+-- AUTO_INCREMENT de la tabla `category`
 --
-ALTER TABLE `categorias`
-  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+ALTER TABLE `category`
+  MODIFY `id_category` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT de la tabla `productos`
+-- AUTO_INCREMENT de la tabla `comment`
 --
-ALTER TABLE `productos`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+ALTER TABLE `comment`
+  MODIFY `id_comment` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de la tabla `users`
+-- AUTO_INCREMENT de la tabla `product`
 --
-ALTER TABLE `users`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+ALTER TABLE `product`
+  MODIFY `id_product` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT de la tabla `user`
+--
+ALTER TABLE `user`
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Restricciones para tablas volcadas
 --
 
 --
--- Filtros para la tabla `productos`
+-- Filtros para la tabla `comment`
 --
-ALTER TABLE `productos`
-  ADD CONSTRAINT `id_categoria` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id_categoria`) ON DELETE CASCADE;
+ALTER TABLE `comment`
+  ADD CONSTRAINT `fk_comment_user` FOREIGN KEY (`id_author`) REFERENCES `user` (`id_user`) ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `product`
+--
+ALTER TABLE `product`
+  ADD CONSTRAINT `fk_product_category` FOREIGN KEY (`id_category`) REFERENCES `category` (`id_category`) ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
