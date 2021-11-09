@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-11-2021 a las 22:32:30
--- Versión del servidor: 10.4.20-MariaDB
--- Versión de PHP: 7.3.29
+-- Tiempo de generación: 08-11-2021 a las 21:36:45
+-- Versión del servidor: 10.4.21-MariaDB
+-- Versión de PHP: 7.3.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -98,7 +98,7 @@ INSERT INTO `product` (`id_product`, `color`, `size`, `stock`, `price`, `id_cate
 
 CREATE TABLE `user` (
   `id_user` int(11) NOT NULL,
-  `name` varchar(45) NOT NULL,
+  `email` varchar(100) NOT NULL,
   `password` varchar(245) NOT NULL,
   `admin` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -107,9 +107,12 @@ CREATE TABLE `user` (
 -- Volcado de datos para la tabla `user`
 --
 
-INSERT INTO `user` (`id_user`, `name`, `password`, `admin`) VALUES
+INSERT INTO `user` (`id_user`, `email`, `password`, `admin`) VALUES
 (1, 'Valentin', '$2y$10$DVcibF0tEwx.4DlBWnsCk.4J.TPvK08U82esltUA8I6dA5s31dVJC', 0),
-(6, 'prueba', '$2y$10$HWQ07juP/O6XHQRk0Cx18uCRX7jFSAmQBNcvxXMogKObSlppO.gHC', 0);
+(6, 'prueba', '$2y$10$HWQ07juP/O6XHQRk0Cx18uCRX7jFSAmQBNcvxXMogKObSlppO.gHC', 0),
+(7, 'prueba1', '$2y$10$nRKQSvtcZEOK/1100QnNYOCjQJSe2oYUAz3K16HN02xnQtNdPnd0G', 0),
+(12, 'pepitoPistolero@jaja.com', '$2y$10$1ZrAF46RyRvYsSIi9s4k3.EFITOyvgXVsoqJ3dqT6DJBGTPmB5M6u', 0),
+(13, 'valentincaminosmartinez@hotmail.com', '$2y$10$jsMHcXMBEX/d/gl2QXCsiuNGGKooAZgj9AF29ztTFZwlU/wklh6sS', 0);
 
 --
 -- Índices para tablas volcadas
@@ -140,7 +143,8 @@ ALTER TABLE `product`
 -- Indices de la tabla `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`id_user`);
+  ADD PRIMARY KEY (`id_user`),
+  ADD UNIQUE KEY `emailUnique` (`email`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -168,7 +172,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT de la tabla `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- Restricciones para tablas volcadas

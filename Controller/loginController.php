@@ -32,16 +32,9 @@ class loginController
             $user = $this->model->getUserByEmail($userEmail);
             if ($user && password_verify($userPassword, $user->password)) {
                 session_start();
-
                 $_SESSION["email"] = $userEmail;
-                // $_SESSION['admin'] = $user->admin;
+                $_SESSION['admin'] = $user->admin;
                 $this->view->redirectHome();
-                // if($_SESSION['admin']==1){
-                //     $this->helper->location();
-                // }
-                // if($_SESSION['admin'] != 1){
-                //     $this->helper->location();
-                // }
             } else {
                 $this->view->showLogin('Acceso denegado. Vuelva a intentar');
             }

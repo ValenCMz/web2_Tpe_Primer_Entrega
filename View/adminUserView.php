@@ -14,4 +14,9 @@ class adminUserView{
         $this->smarty->assign('users', $users);
         $this->smarty->display('templates/showAdminUsers.tpl');
     }
+
+    function redirectAdmin()
+    {
+        header("Location: " . BASE_URL . "showAdminUsers");
+    }
 }

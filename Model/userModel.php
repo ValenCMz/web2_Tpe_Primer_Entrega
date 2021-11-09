@@ -30,8 +30,11 @@ class userModel
         $query->execute(
             array($email, $password)
         );
+    }
 
-        $user =  $query->fetch(PDO::FETCH_OBJ);
-        return $user;
+    function deleteUser($idUser)
+    {
+        $query = $this->db->prepare("DELETE FROM user WHERE id_user=?");
+        $query->execute(array($idUser));
     }
 }

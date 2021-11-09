@@ -71,8 +71,8 @@ switch ($params[0]) {
     case 'logout':
         $loginController->logout();
         break;
-    case 'deleteProducts':
-        $productController->deleteProducts($params[1]);
+    case 'deleteUser':
+        $adminController->deleteUser($params[1]);
         break;
     case 'showRegister':
         $registerController->showRegisterForm();
@@ -86,7 +86,6 @@ switch ($params[0]) {
     case 'showAdminUsers':
         $adminController->showAdminUsers();
         break;
-            
     default:
         echo ('404 Page not found');
         break;

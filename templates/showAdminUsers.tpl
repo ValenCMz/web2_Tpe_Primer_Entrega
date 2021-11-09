@@ -17,8 +17,8 @@
                     items-center px-1 pt-1 border-b-2 text-sm font-medium">
                         Administrar Productos
                     </a>
-                    <a href="showAdminCategories/" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
-                        >
+                    <a href="showAdminCategories/"
+                        class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
 
                         Administrar Categorias
                     </a>
@@ -55,7 +55,7 @@
                             <th scope="col"
                                 class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                 Acciones</th>
-                            
+
                         </tr>
                     </thead>
                     {foreach from=$users item=$user}
@@ -65,10 +65,10 @@
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{$user->admin}
                                 </td>
-                            
+
                                 <td class="detalle-producto"><a
                                         class="text-indigo-600 hover:text-indigo-900 px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"
-                                        href="deleteProduct/{$user->id_user}">Eliminar Usuario</a> </td>
+                                        href="deleteUser/{$user->id_user}">Eliminar Usuario</a> </td>
                             </tr>
                         </tbody>
                     {/foreach}

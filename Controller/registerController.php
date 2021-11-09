@@ -28,13 +28,14 @@ class registerController
         $userEmail = $_POST['email'];
         $userPassword = password_hash($_POST['password'], PASSWORD_BCRYPT);
         $user = $this->model->getUserByEmail($userEmail);
-        if(isset($user)){
+        if($user){
             $this->view->showRegisterForm("El email que ingreso ya existe, intentelo nuevamente");
-
-            // $this->controllerLogin->verifyLogin();
         }
-        
-        $insertUser = $this->model->insertUser($userEmail, $userPassword);
-    
+        else{
+            $this->model->insertUser($userEmail, $userPassword);
+            $this->controllerLogin->verifyLogin();
+        }
     }
+    
+    
 }
