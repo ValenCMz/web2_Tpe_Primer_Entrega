@@ -25,20 +25,27 @@ class loginController
 
     function verifyLogin()
     {
+        
         if (!empty($_POST['email']) && !empty($_POST['password'])) {
             $userEmail = $_POST['email'];
             $userPassword = $_POST['password'];
 
             $user = $this->model->getUserByEmail($userEmail);
+            
             if ($user && password_verify($userPassword, $user->password)) {
+    
                 session_start();
                 $_SESSION["email"] = $userEmail;
                 $_SESSION['admin'] = $user->admin;
+                
                 $this->view->redirectHome();
             } else {
                 $this->view->showLogin('Acceso denegado. Vuelva a intentar');
             }
+           
+                
         }
+        
     }
 
     function verifyAdmin(){

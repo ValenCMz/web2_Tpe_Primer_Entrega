@@ -86,6 +86,9 @@ switch ($params[0]) {
     case 'showAdminUsers':
         $adminController->showAdminUsers();
         break;
+    case 'setAdmin':
+        $adminController->setAdmin($params[1], $params[2]);
+        break;
     default:
         echo ('404 Page not found');
         break;

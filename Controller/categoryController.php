@@ -30,14 +30,14 @@ class categoryController
 
     function insertCategory()
     {
-        $this->authHelper->checkloggedIn();
+        $this->authHelper->checkloggedInAdmin();
         $this->model->insertCategory($_POST['newCategory']);
         $this->view->redirectAdmin();
     }
 
     function deleteCategory($id)
     {
-        $this->authHelper->checkloggedIn();
+        $this->authHelper->checkloggedInAdmin();
         $products = $this->prod_model->getProductsByCategory($id); //modificar
         if (empty($products)) {
             $this->model->deleteCategory($id);
@@ -50,14 +50,14 @@ class categoryController
 
     function showUpdateCategory($id)
     {
-        $this->authHelper->checkloggedIn();
+        $this->authHelper->checkloggedInAdmin();
         $category = $this->model->getCategories();
         $this->view->showUpdateCategory($id);
     }
 
     function updateCategory()
     {
-        $this->authHelper->checkloggedIn();
+        $this->authHelper->checkloggedInAdmin();
         $this->model->getCategories();
         $this->model->updateCategory($_POST['idCategory'], $_POST['newCategory']);
         $this->view->redirectAdmin();

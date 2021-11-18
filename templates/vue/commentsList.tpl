@@ -1,16 +1,15 @@
 {literal}
-<section id="comments">
-                <ul class="commentsList">
-                </ul>
-             </section>
+    <table id="comments-table">
+        <thead>
+            <td>Email</td>
+            <td>Comentario</td>
+            <td>Valoracion</td>
+        </thead>
 
-        <form id="commentForm" action="insert" method="post">
-            <input type="text" name="content" placeholder="Comentario">
-            <input type="number" name="score" placeholder="Puantuación" max="10">
-            <input type="submit" value="Insertar">
-        </form>
-
-        <script src="js/apiComment.js"></script>
-
+        <tr v-for="comment in comments">
+            <td>{{comment.email}}</td>
+            <td>{{comment.content}}</td>
+            <td>{{comment.score}}</td>
+        </tr>
+    </table>
 {/literal}
-

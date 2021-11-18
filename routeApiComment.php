@@ -7,8 +7,10 @@ $router = new Router();
 
 // define la tabla de ruteo
 $router->addRoute('comment', 'GET', 'apiCommentController', 'getComments');
-// $router->addRoute('tareas', 'POST', 'ApiTaskController', 'crearTarea');
-// $router->addRoute('tareas/:ID', 'GET', 'ApiTaskController', 'obtenerTarea');
+$router->addRoute('comment/product/:ID', 'GET', 'apiCommentController', 'getCommentsByProduct');
+$router->addRoute('comment/:ID', 'GET', 'apiCommentController', 'getComment');
 
 // rutea
 $router->route($_GET['resource'], $_SERVER['REQUEST_METHOD']);
+
+    

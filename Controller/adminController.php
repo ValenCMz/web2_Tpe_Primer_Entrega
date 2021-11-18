@@ -6,22 +6,18 @@ require_once "./Helpers/authHelper.php";
 
 class adminController
 {
-    private $model;
+    private $adminModel;
     private $view;
     private $userModel;
     private $authHelper;
 
     function __construct()
     {
-        $this->model = new adminModel();
+        $this->adminModel = new adminModel();
         $this->view = new adminUserView(); 
         $this->userModel = new userModel(); 
         $this->authHelper = new AuthHelper();
 
-    }
-
-    function assignAdminPermissions()
-    {
     }
 
     function showAdminUsers(){
@@ -35,6 +31,20 @@ class adminController
         $this->authHelper->checkloggedInAdmin();
         $this->userModel->deleteUser($idUser);
         $this->view->redirectAdmin();
+    }
+
+    function setAdmin($idUser, $userAdmin){
+        $this->authHelper->checkloggedInAdmin();
+        if($idUser){
+            if($userAdmin == "1"){
+                $this->adminModel->removeAdmin($idUser);
+                $this->view->redirectAdmin();
+
+            }else{
+                 $this->adminModel->giveAdmin($idUser);
+                 $this->view->redirectAdmin();
+            }
+        }
     }
 
 }

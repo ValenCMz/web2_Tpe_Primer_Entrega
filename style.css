@@ -1,0 +1,35 @@
+.puntaje {
+    width: 250px;
+    margin: 0 auto;
+    height: 50px;
+}
+
+.puntaje p {
+    text-align: center;
+}
+
+.puntaje label {
+    font-size: 20px;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+label {
+    color: grey;
+}
+
+.clasificacion {
+    direction: rtl;
+    unicode-bidi: bidi-override;
+}
+
+label:hover,
+label:hover~label {
+    color: orange;
+}
+
+input[type="radio"]:checked~label {
+    color: orange;
+}

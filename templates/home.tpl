@@ -10,39 +10,61 @@
                     <img class="block lg:hidden h-16 w-auto" src="img/logo-tienda.png" alt="Workflow">
                     <img class="hidden lg:block h-16 w-auto" src="img/logo-tienda.png" alt="Logo tienda de remeras">
                 </div>
+
                 <div class="hidden md:ml-6 md:flex md:space-x-8">
                     <a href=""
                         class="border-indigo-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
                         Home
                     </a>
-
                     <a href="showCategories/"
                         class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
                         Ver las categorias enlistadas
                     </a>
-                    {if !empty($user)}
+
+                    {* <a href="logout/"
+                        class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        Log out
+                    </a>
+
+                    <a href="administration/"
+                        class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        Administración
+                    </a>
+
+                    <a href="showLogin/"
+                        class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        Log In
+                    </a> *}
+
+
+                    {if (!empty($user))}
                         <a href="logout/"
                             class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
                             Log out
-                        </a>
-                        <a href="administration/"
-                            class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
-                            Administración
                         </a>
                     {else}
                         <a href="showLogin/"
                             class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
                             Log In
-                        </a>
-                    {/if}
-                    {if empty($user)}
-                        <a href="showRegister/"
-                            class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
-                            Registrarse
+                            <a href="showRegister/"
+                                class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                                Registrarse
+                            </a>
                         </a>
                     {/if}
 
+                    {if $isAdmin}
+                        <a href="administration/"
+                            class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Administración
+                        </a>
+                    {/if}
+
+
+
                 </div>
+
+
             </div>
 
 

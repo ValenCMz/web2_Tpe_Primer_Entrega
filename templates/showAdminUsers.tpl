@@ -66,9 +66,10 @@
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{$user->admin}
                                 </td>
 
-                                <td class="detalle-producto"><a
-                                        class="text-indigo-600 hover:text-indigo-900 px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"
+                                <td><a class="text-indigo-600 hover:text-indigo-900 px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"
                                         href="deleteUser/{$user->id_user}">Eliminar Usuario</a> </td>
+                                <td><a class="text-indigo-600 hover:text-indigo-900 px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"
+                                        href="setAdmin/{$user->id_user}/{$user->admin}">Cambiar Admin</a> </td>
                             </tr>
                         </tbody>
                     {/foreach}

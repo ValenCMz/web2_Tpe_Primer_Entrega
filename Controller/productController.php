@@ -42,7 +42,7 @@ class productController
 
     function showInsertProductForm()
     {
-        $this->authHelper->checkloggedIn();
+        $this->authHelper->checkloggedInAdmin();
         $categories = $this->modelCategory->getCategories();
         $products = $this->model->getProducts();
         $this->view->showInsertProductForm($categories, $products);
@@ -50,28 +50,28 @@ class productController
 
     function insertProduct()
     {
-        $this->authHelper->checkloggedIn();
+        $this->authHelper->checkloggedInAdmin();
         $this->model->insertProduct($_POST['color'],  $_POST['size'], $_POST['stock'], $_POST['price'], $_POST['id_category']);
         $this->view->redirectAdmin();
     }
 
     function deleteProduct($id)
     {
-        $this->authHelper->checkloggedIn();
+        $this->authHelper->checkloggedInAdmin();
         $this->model->deleteProduct($id);
         $this->view->redirectAdmin();
     }
 
     function showUpdateProduct($id)
     {
-        $this->authHelper->checkloggedIn();
+        $this->authHelper->checkloggedInAdmin();
         $categories = $this->modelCategory->getCategories();
         $this->view->showUpdateProduct($id, $categories);
     }
 
     function updateProduct()
     {
-        $this->authHelper->checkloggedIn();
+        $this->authHelper->checkloggedInAdmin();
         $this->model->updateProduct($_POST['idProduct'], $_POST['color'],  $_POST['size'], $_POST['stock'], $_POST['price'], $_POST['id_category']);
         $this->view->redirectAdmin();
     }
