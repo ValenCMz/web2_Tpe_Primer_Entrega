@@ -33,3 +33,11 @@ label:hover~label {
 input[type="radio"]:checked~label {
     color: orange;
 }
+
+.start {
+    padding: 0px;
+    margin: 0px;
+    /* colocar en la parte izquierda de la pantalla */
+    display: flex;
+    justify-content: end;
+}

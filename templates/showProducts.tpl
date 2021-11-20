@@ -38,12 +38,11 @@
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                                     ${$product->price}</td>
-
-                                <td>
-                                    <a class="text-indigo-600 hover:text-indigo-900 px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"
-                                        href="productDetail/{$product->id_product}">Detalles</a>
-                                </td>
-
+                                <h1 id="product" data-idProducto={$product->id_product}</h1>
+                                    <td>
+                                        <a class="text-indigo-600 hover:text-indigo-900 px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"
+                                            href="productDetail/{$product->id_product}">Detalles</a>
+                                    </td>
                             </tr>
                         </tbody>
                     {/foreach}
@@ -52,4 +51,5 @@
         </div>
     </div>
 </div>
+
 {include file= 'templates/footer.tpl'}

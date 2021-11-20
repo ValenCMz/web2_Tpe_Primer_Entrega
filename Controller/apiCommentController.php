@@ -20,7 +20,7 @@ class apiCommentController
     }
 
     function getCommentsByProduct($params = []){
-        $productId = $params[0];
+        $productId = $params[':ID'];
         $comments = $this->model->getCommentsByProduct($productId);
         if($comments){
             return $this->view->response($comments, 200);

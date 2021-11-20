@@ -32,7 +32,7 @@ class categoryController
     {
         $this->authHelper->checkloggedInAdmin();
         $this->model->insertCategory($_POST['newCategory']);
-        $this->view->redirectAdmin();
+        $this->view->redirectAdminCategory();
     }
 
     function deleteCategory($id)
@@ -41,7 +41,7 @@ class categoryController
         $products = $this->prod_model->getProductsByCategory($id); //modificar
         if (empty($products)) {
             $this->model->deleteCategory($id);
-            $this->view->redirectAdmin();
+            $this->view->redirectAdminCategory();
         } else {
             $categoryName = $this->model->getCategoryName($id);
             $this->view->warningDeleteProducts($products, $categoryName, $id);

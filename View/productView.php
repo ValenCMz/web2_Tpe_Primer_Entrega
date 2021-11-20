@@ -13,11 +13,6 @@ class productView
 
     function showHome($products)
     {
-        // var_dump($_SESSION);
-        // if(isset($_SESSION)){
-        //     $_SESSION['admin']= 0;
-        //     $this->smarty->assign('user', $_SESSION);
-        // }
         $this->smarty->assign('user', $_SESSION);
         $this->smarty->assign('isAdmin', isset($_SESSION['admin']) && $_SESSION['admin'] == 1);
         $this->smarty->assign('products', $products);

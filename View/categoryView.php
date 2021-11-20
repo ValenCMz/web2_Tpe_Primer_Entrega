@@ -27,6 +27,11 @@ class categoryView
         header("Location: " . BASE_URL . "administration");
     }
 
+    function redirectAdminCategory()
+    {
+        header("Location: " . BASE_URL . "showAdminCategories");
+    }
+
     function showUpdateCategory($id)
     {
         $this->smarty->assign("id_category", $id);
