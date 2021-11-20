@@ -1,9 +1,10 @@
-"use strict"
+"use strict";
 
 const product = document.querySelector("#form-comment");
 let id_product = product.getAttribute("data-idProducto");
-const API_URL = `http://localhost/web2/web2_Tpe_Primer_Entrega/api/comment/product/${id_product}`;
-
+// problema de incompatibilidad
+//const API_URL = `http://localhost/web2/web2_Tpe_Primer_Entrega/api/comment/product/${id_product}`;
+const API_URL = "http://localhost/api/comment/product/${id_product}";
 
 let app = new Vue({
     el: '#app',
@@ -13,10 +14,10 @@ let app = new Vue({
 });
 
 async function getComments(id_product) {
-    try{
+    try {
         let response = await fetch(API_URL);
         let comments = await response.json();
-    
+
         app.comments = comments;
     } catch (error) {
         console.error(error);

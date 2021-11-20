@@ -119,6 +119,6 @@
 </div>
 
 
-<script src="js/comment.js"></script>
+<script src="Js/comment.js"></script>
 
 {include file= 'templates/footer.tpl'}
