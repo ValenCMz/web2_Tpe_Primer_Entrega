@@ -1,6 +1,6 @@
 "use strict";
 
-const comment = document.querySelector("#form-comment").addEventListener("submit", insertComment);
+const product = document.querySelector("#form-comment");
 let id_product = product.getAttribute("data-idProducto");
 
 // problema de incompatibilidad
@@ -26,16 +26,16 @@ async function getComments(id_product) {
     }
 }
 
-async function insertComment($params = null) {
-    try {
+// async function insertComment($params = null) {
+//     try {
 
-        let response = await fetch(API_URL);
-        let comments = await response.json();
+//         let response = await fetch(API_URL);
+//         let comments = await response.json();
 
-    } catch (error) {
-        console.error(error);
-    }
-}
+//     } catch (error) {
+//         console.error(error);
+//     }
+// }
 
 // async function insertComment() {
 //     try {
