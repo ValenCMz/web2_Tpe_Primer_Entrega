@@ -2,6 +2,8 @@
 require_once "./Model/apiCommentModel.php";
 require_once "./View/apiCommentView.php";
 require_once "Model/userModel.php";
+require_once "./Helpers/authHelper.php";
+
 
 class apiCommentController
 {
@@ -13,6 +15,7 @@ class apiCommentController
         $this->model = new apiCommentModel();
         $this->view = new apiCommentView();
         $this->userModel = new userModel();
+        $this->authHelper = new authHelper();
     }
 
     function getComments()
@@ -47,6 +50,7 @@ class apiCommentController
 
     function insertComment($params = []) 
     {
+        $this->authHelper->checkloggedIn();
         $body = $this->getBody();   
         $id = $this->model->insertComment($body->content, $body->score, $body->id_author, $body->id_product);
         if ($id != 0) {
@@ -64,6 +68,19 @@ class apiCommentController
         return json_decode($bodyString);
     }
     
+
+    function deleteComment($params = [])
+    {
+        $this->authHelper->checkloggedInAdmin();
+        $idComment = $params[':ID'];
+        $comment = $this->model->getComment($idComment);
+        if($comment){
+            $this->model->deleteComment($idComment);
+            return $this->view->response("El comentario con el id=$idComment se eliminó", 200);
+        }else{
+            return $this->view->response("El comentario con el id=$idComment no se encontro", 400);
+        }
+    }
 }
     
 

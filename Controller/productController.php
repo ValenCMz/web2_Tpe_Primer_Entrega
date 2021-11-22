@@ -23,14 +23,19 @@ class productController
     function showHome()
     {
         session_start();
+        $isAdmin = isset($_SESSION['admin']) && $_SESSION['admin'] == 1;
+        $user = $_SESSION;
         $prodItems = $this->model->getProducts();
-        $this->view->showHome($prodItems);
+        $this->view->showHome($prodItems, $isAdmin, $user);
     }
 
     function showProductDetail($id)
     {
+        session_start();
+        $idUser = $_SESSION['id'];
+        $isAdmin = isset($_SESSION['admin']) && $_SESSION['admin'] == 1;
         $product = $this->model->getProduct($id);
-        $this->view->showProductDetail($product);
+        $this->view->showProductDetail($product, $idUser, $isAdmin);
     }
 
     function getProductsByCategory($id)

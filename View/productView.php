@@ -11,20 +11,21 @@ class productView
         $this->smarty = new Smarty();
     }
 
-    function showHome($products)
+    function showHome($products, $isAdmin, $user)
     {
-        $this->smarty->assign('user', $_SESSION);
-        $this->smarty->assign('isAdmin', isset($_SESSION['admin']) && $_SESSION['admin'] == 1);
+        $this->smarty->assign('user', $user);
+        $this->smarty->assign('isAdmin', $isAdmin);
         $this->smarty->assign('products', $products);
         $this->smarty->display('templates/home.tpl');
     }
 
-    function showProductDetail($product)
+    function showProductDetail($product, $idUser, $isAdmin)
     {
+        $this->smarty->assign('idUser', $idUser);
+        $this->smarty->assign('isAdmin', $isAdmin);
         $this->smarty->assign('product', $product);
         $this->smarty->display('templates/productDetail.tpl');
     }
-
     function showProductsByCategory($productsByCategory, $categoryName)
     {
         $this->smarty->assign('categoryName', $categoryName);

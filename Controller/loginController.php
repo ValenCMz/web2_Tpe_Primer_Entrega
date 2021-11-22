@@ -37,7 +37,7 @@ class loginController
                 session_start();
                 $_SESSION["email"] = $userEmail;
                 $_SESSION['admin'] = $user->admin;
-                
+                $_SESSION['id'] = $user->id_user;
                 $this->view->redirectHome();
             } else {
                 $this->view->showLogin('Acceso denegado. Vuelva a intentar');
