@@ -44,4 +44,29 @@ class apiCommentController
         return $this->view->response("El comentario con el id=$idComment no se encontro", 400);
        }
     }
+
+    function insertComment($params = []) 
+    {
+        $body = $this->getBody();   
+        $id = $this->model->insertComment($body->content, $body->score, $body->id_author, $body->id_product);
+        if ($id != 0) {
+            $this->view->response("El comentario se insertó con el id=$id", 200);
+        } else {
+            $this->view->response("El comentario no se pudo insertar", 500);
+        }
+
+    }
+ /**
+     * Devuelve el body del request
+     */
+    private function getBody() {
+        $bodyString = file_get_contents("php://input");
+        return json_decode($bodyString);
+    }
+    
 }
+    
+
+    
+
+

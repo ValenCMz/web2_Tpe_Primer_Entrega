@@ -9,6 +9,7 @@ $router = new Router();
 $router->addRoute('comment', 'GET', 'apiCommentController', 'getComments');
 $router->addRoute('comment/:ID', 'GET', 'apiCommentController', 'getComment');
 $router->addRoute('comment/product/:ID', 'GET', 'apiCommentController', 'getCommentsByProduct');
+$router->addRoute('comment', 'POST', 'apiCommentController', 'insertComment');
 
 // rutea
 $router->route($_GET['resource'], $_SERVER['REQUEST_METHOD']);

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-11-2021 a las 21:36:45
--- Versión del servidor: 10.4.21-MariaDB
--- Versión de PHP: 7.3.31
+-- Tiempo de generación: 21-11-2021 a las 21:58:58
+-- Versión del servidor: 10.4.20-MariaDB
+-- Versión de PHP: 7.3.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -61,8 +61,9 @@ CREATE TABLE `comment` (
 --
 
 INSERT INTO `comment` (`id_comment`, `content`, `score`, `id_author`, `id_product`) VALUES
-(1, 'Muy bonito el producto che', 5, 1, 0),
-(2, 'Y ahora que hago', 1, 1, 0);
+(5, 'sadasd', 5, 1, 7),
+(6, 'sadasd', 5, 1, 7),
+(7, 'jejej', 2, 36, 8);
 
 -- --------------------------------------------------------
 
@@ -84,11 +85,9 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id_product`, `color`, `size`, `stock`, `price`, `id_category`) VALUES
-(2, 'verde', 'L', 1000, 9108900, 1),
-(3, 'azul', 'S', 213, 12331, 1),
-(4, 'amarillo', 'M', 14241, 412412, 4),
-(5, 'rojo', 'M', 543543, 3333, 5),
-(6, 'amarillo', 'L', 1231, 1111, 6);
+(7, 'Rojo', '2', 33, 100, 4),
+(8, 'Rojo', '2', 33, 100, 4),
+(9, 'azul', 'M', 200, 300, 5);
 
 -- --------------------------------------------------------
 
@@ -100,7 +99,7 @@ CREATE TABLE `user` (
   `id_user` int(11) NOT NULL,
   `email` varchar(100) NOT NULL,
   `password` varchar(245) NOT NULL,
-  `admin` tinyint(1) NOT NULL
+  `admin` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -108,11 +107,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `email`, `password`, `admin`) VALUES
-(1, 'Valentin', '$2y$10$DVcibF0tEwx.4DlBWnsCk.4J.TPvK08U82esltUA8I6dA5s31dVJC', 0),
-(6, 'prueba', '$2y$10$HWQ07juP/O6XHQRk0Cx18uCRX7jFSAmQBNcvxXMogKObSlppO.gHC', 0),
-(7, 'prueba1', '$2y$10$nRKQSvtcZEOK/1100QnNYOCjQJSe2oYUAz3K16HN02xnQtNdPnd0G', 0),
-(12, 'pepitoPistolero@jaja.com', '$2y$10$1ZrAF46RyRvYsSIi9s4k3.EFITOyvgXVsoqJ3dqT6DJBGTPmB5M6u', 0),
-(13, 'valentincaminosmartinez@hotmail.com', '$2y$10$jsMHcXMBEX/d/gl2QXCsiuNGGKooAZgj9AF29ztTFZwlU/wklh6sS', 0);
+(1, 'Valentin', '$2y$10$DVcibF0tEwx.4DlBWnsCk.4J.TPvK08U82esltUA8I6dA5s31dVJC', 1),
+(35, 'administrador@jaja.com', '$2y$10$ilw6Agy2cs.o02yqkieZruZrjKS7WOrQ3QGcpePq89yNwwFj.8X7W', 1),
+(36, 'noadmin@jaja.com', '$2y$10$9YBK4OCrjFIIyzoNDtHwqOXeIXkEILSXiOj21dx.bxYUtWOH1dxrS', 0);
 
 --
 -- Índices para tablas volcadas
@@ -130,7 +127,7 @@ ALTER TABLE `category`
 ALTER TABLE `comment`
   ADD PRIMARY KEY (`id_comment`),
   ADD KEY `fk_comment_user` (`id_author`),
-  ADD KEY `fk_comment_product` (`id_product`);
+  ADD KEY `id_product` (`id_product`);
 
 --
 -- Indices de la tabla `product`
@@ -154,25 +151,25 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT de la tabla `category`
 --
 ALTER TABLE `category`
-  MODIFY `id_category` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_category` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `id_comment` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_comment` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `product`
 --
 ALTER TABLE `product`
-  MODIFY `id_product` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_product` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- Restricciones para tablas volcadas
@@ -182,6 +179,7 @@ ALTER TABLE `user`
 -- Filtros para la tabla `comment`
 --
 ALTER TABLE `comment`
+  ADD CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`id_product`) REFERENCES `product` (`id_product`),
   ADD CONSTRAINT `fk_comment_user` FOREIGN KEY (`id_author`) REFERENCES `user` (`id_user`) ON UPDATE CASCADE;
 
 --

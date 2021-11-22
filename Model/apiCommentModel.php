@@ -31,4 +31,10 @@ class apiCommentModel
         $comments = $query->fetchAll(PDO::FETCH_OBJ);
         return $comments;
     }
+
+    function insertComment($content, $score, $idUser, $idProduct){
+        $query = $this->db->prepare("INSERT INTO comment(content, score, id_author, id_product) VALUES (?,?,?,?)");
+        $query->execute(array($content, $score, $idUser, $idProduct));
+        return $this->db->lastInsertId();
+    }
 }

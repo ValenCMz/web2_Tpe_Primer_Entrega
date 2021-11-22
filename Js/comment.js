@@ -5,7 +5,7 @@ let id_product = product.getAttribute("data-idProducto");
 
 // problema de incompatibilidad
 //const API_URL = `http://localhost/web2/web2_Tpe_Primer_Entrega/api/comment/product/${id_product}`;
-const API_URL = "http://localhost/api/comment/product/${id_product}";
+const API_URL = `api/comment/product/${id_product}`;
 
 let app = new Vue({
     el: '#app',
