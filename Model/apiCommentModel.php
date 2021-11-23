@@ -37,4 +37,9 @@ class apiCommentModel
         $query->execute(array($content, $score, $idUser, $idProduct));
         return $this->db->lastInsertId();
     }
+
+    function deleteComment($idComment){
+        $query = $this->db->prepare("DELETE FROM comment WHERE id_comment=?");
+        $query->execute(array($idComment));
+    }
 }
