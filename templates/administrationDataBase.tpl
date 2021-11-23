@@ -34,7 +34,6 @@
                 </div>
             </div>
 
-
         </div>
 </nav>
 
@@ -84,16 +83,22 @@
                                 {/foreach}
                             </select>
                         </div>
+                        <div>
+                    
+                </div>
                     </div>
                 </div>
+                
             </div>
+            {include file= 'templates/imgForm.tpl'}
             <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                <input type="submit" value="Agregar"
+                <input type="submit" value="Agregar Producto"
                     class="bg-indigo-600 border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
             </div>
         </form>
     </div>
 </div>
+
 
 {include file= 'templates/showEditableProducts.tpl'}
 
