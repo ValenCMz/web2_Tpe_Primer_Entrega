@@ -43,13 +43,20 @@
                                         <a class="text-indigo-600 hover:text-indigo-900 px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"
                                             href="productDetail/{$product->id_product}">Detalles</a>
                                     </td>
+                                    {if isset($product->img)}
+                                        <td><img src="{$product->img}"/></td>
+                                    {/if}
                             </tr>
                         </tbody>
+                       
                     {/foreach}
                 </table>
             </div>
         </div>
     </div>
 </div>
+
+
+
 
 {include file= 'templates/footer.tpl'}

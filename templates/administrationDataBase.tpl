@@ -39,7 +39,7 @@
 
 <div class="bg-white shadow sm:rounded-lg">
     <div class=" space-y-6 sm:px-6 lg:px-0 lg:col-span-9">
-        <form action="insertProduct" method="POST">
+        <form action="insertProduct" method="POST" enctype="multipart/form-data">
             <div class="shadow sm:rounded-md sm:overflow-hidden">
                 <div class="bg-white py-6 px-4 space-y-6 sm:p-6">
                     <div>
@@ -88,9 +88,10 @@
                 </div>
                     </div>
                 </div>
-                
+                {* {$denied|@debug_print_var}
+                <h1>{$denied}</h1> *}
             </div>
-            {include file= 'templates/imgForm.tpl'}
+            <input type="file" name="input_name" id="imageToUpload">
             <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
                 <input type="submit" value="Agregar Producto"
                     class="bg-indigo-600 border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">

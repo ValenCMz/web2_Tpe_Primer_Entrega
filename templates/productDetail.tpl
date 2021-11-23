@@ -54,18 +54,11 @@
         </div>
     </div>
 </div>
-{* <div class="lg:grid lg:grid-cols-12 lg:gap-x-5">
-    <div class="space-y-6 sm:px-6 lg:px-0 lg:col-span-9">
-        <div class="px-4 py-3 text-left sm:px-6">
-            <a href="api/comment/{$product->id_product}"
-                class="bg-indigo-600 border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                Mostrar comentarios de este producto
-            </a>
-        </div>
-    </div>
-</div> *}
 
-<div class="bg-white shadow sm:rounded-lg">
+<h1 id="form-comment"  data-idProducto="{$product->id_product}"></h1>
+<h1 id="user" data-idUsuario="{$idUser}"></h1>
+{if $idUser}
+    <div class="bg-white shadow sm:rounded-lg">
     <div class=" space-y-6 sm:px-6 lg:px-0 lg:col-span-9">
         <form id="form-comment"  data-idProducto="{$product->id_product}" method="POST">
         <h1 id="user" data-idUsuario="{$idUser}"></h1>
@@ -99,6 +92,13 @@
         </form>
     </div>
 </div>
+{/if}
+
+
+    
+
+       
+
 
 <div id="app" data-isAdmin="{$isAdmin}">
     {include file='templates/vue/commentsList.tpl'}

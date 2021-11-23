@@ -21,11 +21,13 @@ class productView
 
     function showProductDetail($product, $idUser, $isAdmin)
     {
+      
         $this->smarty->assign('idUser', $idUser);
         $this->smarty->assign('isAdmin', $isAdmin);
         $this->smarty->assign('product', $product);
         $this->smarty->display('templates/productDetail.tpl');
     }
+    
     function showProductsByCategory($productsByCategory, $categoryName)
     {
         $this->smarty->assign('categoryName', $categoryName);
@@ -33,10 +35,11 @@ class productView
         $this->smarty->display('templates/productsByCategories.tpl');
     }
 
-    function showInsertProductForm($categories, $products)
+    function showInsertProductForm($categories, $products, $denied = '')
     {
         $this->smarty->assign("categories", $categories);
         $this->smarty->assign("products", $products);
+        $this->smarty->assign("denied", $denied);
         $this->smarty->display('templates/administrationDataBase.tpl');
     }
 

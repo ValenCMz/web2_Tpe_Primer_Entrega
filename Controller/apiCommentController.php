@@ -4,18 +4,19 @@ require_once "./View/apiCommentView.php";
 require_once "Model/userModel.php";
 require_once "./Helpers/authHelper.php";
 
-
 class apiCommentController
 {
     private $model;
     private $view;
+    private $userModel;
+    private $authHelper;
 
     function __construct()
     {
         $this->model = new apiCommentModel();
         $this->view = new apiCommentView();
         $this->userModel = new userModel();
-        $this->authHelper = new authHelper();
+        $this->authHelper = new authHelper();        
     }
 
     function getComments()
