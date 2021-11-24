@@ -51,4 +51,9 @@ class categoryView
         $this->smarty->assign("categories", $categories);
         $this->smarty->display('templates/adminCategories.tpl');
     }
+
+    function showErrorMessage($message){
+        $this->smarty->assign('message', $message);
+        $this->smarty->display('templates/errorMessage.tpl');
+    }
 }

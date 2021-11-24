@@ -84,8 +84,13 @@ class productController
     function updateProduct()
     {
         $this->authHelper->checkloggedInAdmin();
-        $this->model->updateProduct($_POST['idProduct'], $_POST['color'],  $_POST['size'], $_POST['stock'], $_POST['price'], $_POST['id_category']);
-        $this->view->redirectAdmin();
+        if(!empty($_POST['idProduct']) && !empty($_POST['color']) &&  !empty($_POST['size']) && !empty($_POST['stock']) && !empty($_POST['price']) && !empty($_POST['id_category'])){
+            $this->model->updateProduct($_POST['idProduct'], $_POST['color'],  $_POST['size'], $_POST['stock'], $_POST['price'], $_POST['id_category']);
+            $this->view->redirectAdmin();
+        }
+        else{
+            $this->view->showErrorMessage('El producto no se pudo insertar');   
+        }
     }
 
     function deleteProducts($id)

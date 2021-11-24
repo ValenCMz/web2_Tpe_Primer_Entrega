@@ -31,8 +31,14 @@ class categoryController
     function insertCategory()
     {
         $this->authHelper->checkloggedInAdmin();
-        $this->model->insertCategory($_POST['newCategory']);
-        $this->view->redirectAdminCategory();
+        if(!empty($_POST['newCategory'])){
+            $this->model->insertCategory($_POST['newCategory']);     
+            $this->view->redirectAdminCategory();
+        }
+        else{
+            $this->view->showErrorMessage('La categoria no se pudo insertar');   
+        }
+        
     }
 
     function deleteCategory($id)
@@ -59,8 +65,13 @@ class categoryController
     {
         $this->authHelper->checkloggedInAdmin();
         $this->model->getCategories();
-        $this->model->updateCategory($_POST['idCategory'], $_POST['newCategory']);
-        $this->view->redirectAdmin();
+        if(!empty($_POST['idCategory']) && !empty($_POST['newCategory'])){
+            $this->model->updateCategory($_POST['idCategory'], $_POST['newCategory']);
+            $this->view->redirectAdmin();
+        }
+        else{
+            $this->view->showErrorMessage('La categoria no se pudo actualizar');   
+        }
     }
 
     function showAdminCategories()
