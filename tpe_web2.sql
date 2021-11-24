@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-11-2021 a las 21:58:58
--- Versión del servidor: 10.4.20-MariaDB
--- Versión de PHP: 7.3.29
+-- Tiempo de generación: 24-11-2021 a las 19:55:20
+-- Versión del servidor: 10.4.21-MariaDB
+-- Versión de PHP: 7.3.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -61,9 +61,8 @@ CREATE TABLE `comment` (
 --
 
 INSERT INTO `comment` (`id_comment`, `content`, `score`, `id_author`, `id_product`) VALUES
-(5, 'sadasd', 5, 1, 7),
-(6, 'sadasd', 5, 1, 7),
-(7, 'jejej', 2, 36, 8);
+(28, 'subundrule', 3, 36, 7),
+(36, 'subundrule', 2, 1, 8);
 
 -- --------------------------------------------------------
 
@@ -77,17 +76,18 @@ CREATE TABLE `product` (
   `size` varchar(5) NOT NULL,
   `stock` int(11) NOT NULL,
   `price` float NOT NULL,
-  `id_category` int(11) NOT NULL
+  `id_category` int(11) NOT NULL,
+  `img` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `product`
 --
 
-INSERT INTO `product` (`id_product`, `color`, `size`, `stock`, `price`, `id_category`) VALUES
-(7, 'Rojo', '2', 33, 100, 4),
-(8, 'Rojo', '2', 33, 100, 4),
-(9, 'azul', 'M', 200, 300, 5);
+INSERT INTO `product` (`id_product`, `color`, `size`, `stock`, `price`, `id_category`, `img`) VALUES
+(7, 'Rojo', '2', 33, 100, 4, ''),
+(8, 'Rojo', '2', 33, 100, 4, ''),
+(10, 'azul', 'L', 2, 222, 1, '');
 
 -- --------------------------------------------------------
 
@@ -157,13 +157,13 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT de la tabla `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `id_comment` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_comment` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT de la tabla `product`
 --
 ALTER TABLE `product`
-  MODIFY `id_product` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_product` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
 
 --
 -- AUTO_INCREMENT de la tabla `user`

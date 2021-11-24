@@ -1,3 +1,5 @@
+{include file= 'templates/header.tpl'}
+
 <h1 class="text-lg leading-6 font-medium text-white bg-indigo-600 p-6">Productos encontrados:</h1>
 <div class="flex flex-col">
     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -49,3 +51,5 @@
             </div>
         </div>
     </div>
+
+    {include file= 'templates/footer.tpl'}

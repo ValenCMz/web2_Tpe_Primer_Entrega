@@ -115,7 +115,6 @@ class productController
     function searchByProperty(){
         $color = $_POST['color'];
         $size = $_POST['size'];
-        var_dump($color, $size);
         $products = $this->model->searchByProperty($color, $size);
         if($products){
             $this->view->showProductsByProperty($products);
