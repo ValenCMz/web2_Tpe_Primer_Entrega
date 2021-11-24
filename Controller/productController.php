@@ -111,4 +111,16 @@ class productController
             return "img/product/notfound.jpg";
         }
     }
+
+    function searchByProperty(){
+        $color = $_POST['color'];
+        $size = $_POST['size'];
+        var_dump($color, $size);
+        $products = $this->model->searchByProperty($color, $size);
+        if($products){
+            $this->view->showProductsByProperty($products);
+        }else{
+            $this->view->showErrorMessage("No se encontraron productos con los criterios solicitados");
+        }
+    }
 }

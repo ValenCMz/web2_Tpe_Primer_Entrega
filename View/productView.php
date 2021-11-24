@@ -58,4 +58,8 @@ class productView
         $this->smarty->assign("product", $product);
         $this->smarty->display('templates/showUpdateProduct.tpl');
     }
+    function showProductsByProperty($products){
+        $this->smarty->assign('products', $products);
+        $this->smarty->display('templates/showProductsByProperty.tpl');
+    }
 }

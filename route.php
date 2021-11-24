@@ -91,6 +91,9 @@ switch ($params[0]) {
         break;
     case 'deleteProducts':
         $productController->deleteProducts($params[1]);
+    case 'searchByProperty':
+        $productController->searchByProperty();
+        break;
     default:
         echo ('404 Page not found');
         break;

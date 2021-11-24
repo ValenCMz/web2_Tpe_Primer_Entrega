@@ -63,5 +63,13 @@ class productModel
         move_uploaded_file($image, $target);
         return $target;
     }
+    function searchByProperty($color, $size){
+        $query = $this->db->prepare("SELECT * FROM product WHERE color=? AND size=?");
+        $query->execute(
+            array($color, $size)
+        ); 
+        $products = $query->fetchAll(PDO::FETCH_OBJ);
+        return $products;
+    }
 
 }

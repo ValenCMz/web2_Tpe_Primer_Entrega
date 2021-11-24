@@ -75,6 +75,6 @@
 
 
 {include file= 'templates/showProducts.tpl'}
-<br>
+{include file= 'templates/searchByProperty.tpl'}
 
 {include file= 'templates/footer.tpl'}
