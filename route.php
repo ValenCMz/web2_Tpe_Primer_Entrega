@@ -89,6 +89,8 @@ switch ($params[0]) {
     case 'setAdmin':
         $adminController->setAdmin($params[1], $params[2]);
         break;
+    case 'deleteProducts':
+        $productController->deleteProducts($params[1]);
     default:
         echo ('404 Page not found');
         break;

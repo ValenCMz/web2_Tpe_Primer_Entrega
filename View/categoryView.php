@@ -38,11 +38,11 @@ class categoryView
         $this->smarty->display('templates/showEditableCategory.tpl');
     }
 
-    function warningDeleteProducts($products, $category, $id)
+    function warningDeleteProducts($products, $category, $id_category)
     {
-
+        $this->smarty->assign("products", $products);
         $this->smarty->assign("category", $category);
-        $this->smarty->assign("id", $id);
+        $this->smarty->assign("id_category", $id_category);
         $this->smarty->display('templates/warningDeleteProducts.tpl');
     }
 

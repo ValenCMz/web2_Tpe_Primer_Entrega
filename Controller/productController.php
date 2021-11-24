@@ -93,14 +93,14 @@ class productController
         }
     }
 
-    function deleteProducts($id)
+    function deleteProducts($id_category)
     {
-        $products = $this->model->getProductsByCategory($id);
+        $products = $this->model->getProductsByCategory($id_category);
         foreach ($products as $product) {
             $id_product = $product->id_product;
             $this->model->deleteProduct($id_product);
         }
-        $this->modelCategory->deleteCategory($id);
+        $this->modelCategory->deleteCategory($id_category);
         $this->view->redirectAdmin();
     }
     
