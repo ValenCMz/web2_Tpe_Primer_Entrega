@@ -89,7 +89,7 @@ class productController
             $this->view->redirectAdmin();
         }
         else{
-            $this->view->showErrorMessage('El producto no se pudo insertar');   
+            $this->view->showErrorMessage('El producto no se pudo actualizar');   
         }
     }
 
