@@ -26,10 +26,10 @@ class productModel
         return $product;
     }
 
-    function getProductsByCategory($id)
+    function getProductsByCategory($id_category)
     {
         $query = $this->db->prepare("SELECT * FROM product WHERE id_category = ?");
-        $query->execute(array($id));
+        $query->execute(array($id_category));
         $productsByCategory = $query->fetchAll(PDO::FETCH_OBJ);
         return $productsByCategory;
     }
