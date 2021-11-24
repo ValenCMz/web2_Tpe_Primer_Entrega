@@ -34,11 +34,11 @@ class productModel
         return $productsByCategory;
     }
 
-    function insertProduct($color, $size, $stock, $price, $id_category)
+    function insertProduct($color, $size, $stock, $price, $id_category, $path)
     {
-        $query = $this->db->prepare("INSERT INTO product(color, size, stock, price, id_category) VALUES(?, ?, ?, ?, ?)");
+        $query = $this->db->prepare("INSERT INTO product(color, size, stock, price, id_category, img) VALUES(?, ?, ?, ?, ?,?)");
         $query->execute(
-            array($color, $size, $stock, $price, $id_category)
+            array($color, $size, $stock, $price, $id_category, $path)
         );
         return $this->db->lastInsertId();
     }
@@ -56,20 +56,10 @@ class productModel
             array($color, $size, $stock, $price, $id_category, $id)
         );
     }
+  
 
-    function insertImg($imagen = null , $id_product){
-        $pathImg = null;
-        if ($imagen){
-            $pathImg = $this->uploadImage($imagen);
-            $query = $this->db->prepare('INSERT INTO product(img WHERE id_product=?) VALUES(?, ?)');
-            $query->execute(array($pathImg , $id_product));
-            return $this->db->lastInsertId();
-
-        }
-    }   
-
-    private function uploadImage($image){
-        $target = 'img/task/' . uniqid() . '.jpg';
+    function uploadImage($image){
+        $target = 'img/product/' . uniqid() . '.jpg';
         move_uploaded_file($image, $target);
         return $target;
     }

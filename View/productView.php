@@ -35,12 +35,16 @@ class productView
         $this->smarty->display('templates/productsByCategories.tpl');
     }
 
-    function showInsertProductForm($categories, $products, $denied = '')
+    function showInsertProductForm($categories, $products)
     {
         $this->smarty->assign("categories", $categories);
         $this->smarty->assign("products", $products);
-        $this->smarty->assign("denied", $denied);
         $this->smarty->display('templates/administrationDataBase.tpl');
+    }
+
+    function showErrorMessage($message){
+        $this->smarty->assign("message", $message);
+        $this->smarty->display('templates/errorMessage.tpl');
     }
 
     function redirectAdmin()

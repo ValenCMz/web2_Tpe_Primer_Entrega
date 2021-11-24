@@ -57,12 +57,13 @@ class productController
     {
         $this->authHelper->checkloggedInAdmin();
         if(isset($_POST['color']) &&  isset($_POST['size']) && isset($_POST['stock']) && isset($_POST['price']) && isset($_POST['id_category'])){
-            $id_product = $this->model->insertProduct($_POST['color'],  $_POST['size'], $_POST['stock'], $_POST['price'], $_POST['id_category']);
-            $this->insertImg($id_product);
+            $pathImg = $this->insertImg();
+            $this->model->insertProduct($_POST['color'],  $_POST['size'], $_POST['stock'], $_POST['price'], $_POST['id_category'], $pathImg);
+            
             $this->view->redirectAdmin();
         }
         else{
-            $this->view->showInsertProductForm('Completar todos los campos para añadir un producto');    
+            $this->view->showErrorMessage("El producto no se pudo insertar.");   
         }
     }
 
@@ -98,9 +99,11 @@ class productController
         $this->view->redirectAdmin();
     }
     
-   private function insertImg($id_product){
-        if($_FILES['input_name']['type'] == "image/jpg" || $_FILES['input_name']['type'] == "image/jpeg" || $_FILES['input_name']['type'] == "image/png"){
-            $this->model->insertImg($id_product, $_FILES['input_name']['tmp_name']);        
+   private function insertImg(){
+        if($_FILES['product_img']['type'] == "image/jpg" || $_FILES['product_img']['type'] == "image/jpeg" || $_FILES['product_img']['type'] == "image/png"){
+            return $this->model->uploadImage($_FILES['product_img']['tmp_name']);        
+        }else{
+            return "img/product/notfound.jpg";
         }
     }
 }
