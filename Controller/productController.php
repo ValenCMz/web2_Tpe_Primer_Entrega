@@ -56,14 +56,14 @@ class productController
     function insertProduct()
     {
         $this->authHelper->checkloggedInAdmin();
-        if(isset($_POST['color']) &&  isset($_POST['size']) && isset($_POST['stock']) && isset($_POST['price']) && isset($_POST['id_category'])){
+        if(!empty($_POST['color']) &&  !empty($_POST['size']) && !empty($_POST['stock']) && !empty($_POST['price']) && !empty($_POST['id_category'])){
             $pathImg = $this->insertImg();
             $this->model->insertProduct($_POST['color'],  $_POST['size'], $_POST['stock'], $_POST['price'], $_POST['id_category'], $pathImg);
             
             $this->view->redirectAdmin();
         }
         else{
-            $this->view->showErrorMessage("El producto no se pudo insertar.");   
+            $this->view->showErrorMessage('El producto no se pudo insertar');   
         }
     }
 

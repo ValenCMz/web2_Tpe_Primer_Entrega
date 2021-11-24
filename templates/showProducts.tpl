@@ -44,7 +44,7 @@
                                             href="productDetail/{$product->id_product}">Detalles</a>
                                     </td>
                                     {if isset($product->img)}
-                                        <td><img src="{$product->img}"/></td>
+                                        <td><img class="px-6 py-4 w-12 box-content" src="{$product->img}"/></td>
                                     {/if}
                             </tr>
                         </tbody>

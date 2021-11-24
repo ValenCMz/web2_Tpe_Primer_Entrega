@@ -43,7 +43,7 @@ class productView
     }
 
     function showErrorMessage($message){
-        $this->smarty->assign("message", $message);
+        $this->smarty->assign('message', $message);
         $this->smarty->display('templates/errorMessage.tpl');
     }
 
