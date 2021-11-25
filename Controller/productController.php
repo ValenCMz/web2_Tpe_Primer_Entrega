@@ -32,7 +32,7 @@ class productController
     function showProductDetail($id)
     {
         session_start();
-        $idUser = isset($_SESSION['id']);
+        $idUser = $_SESSION['id'];
         $isAdmin = isset($_SESSION['admin']) && $_SESSION['admin'] == 1;
         $product = $this->model->getProduct($id);
         $this->view->showProductDetail($product, $idUser, $isAdmin);

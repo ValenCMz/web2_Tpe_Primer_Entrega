@@ -34,7 +34,7 @@ class apiCommentController
             }
             return $this->view->response($comments, 200);
         }else{
-            return $this->view->response("Los comentarios de el producto con el id=$productID no estan disponibles", 404);
+            return $this->view->response("Los comentarios de el producto con el id=$productId no estan disponibles", 404);
         }
     }
 
