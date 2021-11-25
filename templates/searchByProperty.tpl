@@ -11,7 +11,10 @@
   <option value="">Color</option>
     <option value="rojo">rojo</option>
     <option value="azul">azul</option>
-</select>
+    <option value="amarillo">amarillo</option>
+    <option value="verde">verde</option>
+
+    </select>
 <select name="size" id="size" class="mt-1 block w-full bg-white border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">  
   <option value="">Talle</option>
     <option value="s">s</option>
